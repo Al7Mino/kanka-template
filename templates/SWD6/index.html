@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Star Wars D6 Character Sheet</title>
+	<meta name="author" content="Al7Mino">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+<!-- The code to paste on Kanka starts here -->
+
+<div class="swd6-character-sheet">
+  <div class="header-box">
+    <div class="name-box">
+      <h4>@i18n('Name')</h4>
+      <p>{{$_entity_name}}</p>
+    </div>
+    <div class="job-box">
+      <h4>@i18n('Job')</h4>
+      <p>
+      @isset($job)
+        @liveAttribute('job')
+      @endisset
+      </p>
+    </div>
+    <div class="height-box">
+      <h4>@i18n('Height')</h4>
+      <p>
+      @isset($height)
+        @liveAttribute('height')
+      @endisset
+      </p>
+    </div>
+    <div class="weight-box">
+      <h4>@i18n('Weight')</h4>
+      <p>
+      @isset($weight)
+        @liveAttribute('weight')
+      @endisset
+      </p>
+    </div>
+    <div class="quote-box">
+      <h4>@i18n('Catchphrase')</h4>
+      <p>
+      @isset($catchphrase)
+        {!! $catchphrase !!}
+      @endisset
+      </p>
+    </div>
+  </div>
+  <div class="icon-box">
+    <i class="fab fa-jedi-order"></i>
+  </div>
+  <div class="force-box">
+    <div>
+      <div class="force-content light-force">
+        <h4 class="inline-block">@i18n('Force Points')</h4>
+        <div class="inline-block">
+          @isset($ptForce)
+            @if($ptForce &gt;= 1)
+            <i class="fas fa-circle"></i>
+            @endif
+            @if($ptForce &gt;= 2)
+            <i class="fas fa-circle"></i>
+            @endif
+            @if($ptForce &gt;= 3)
+            <i class="fas fa-circle"></i>
+            @endif
+            @if($ptForce &gt;= 4)
+            <i class="fas fa-circle"></i>
+            @endif
+            @if($ptForce &gt;= 5)
+            <i class="fas fa-circle"></i>
+            @endif
+            @if($ptForce &gt;= 6)
+            @isset($_diffPtForce)
+            <span>+ {{ $_diffPtForce }}</span>
+            @endisset
+            @endif
+            @if($ptForce &lt;= 4)
+            <i class="far fa-circle"></i>
+            @endif
+            @if($ptForce &lt;= 3)
+            <i class="far fa-circle"></i>
+            @endif
+            @if($ptForce &lt;= 2)
+            <i class="far fa-circle"></i>
+            @endif
+            @if($ptForce &lt;= 1)
+            <i class="far fa-circle"></i>
+            @endif
+            @if($ptForce &lt;= 0)
+            <i class="far fa-circle"></i>
+            @endif
+          @endisset
+        </div>
+      </div>
+      <div class="force-content dark-force">
+        <h4 class="inline-block">@i18n('Dark Points')</h4>
+        <div class="inline-block">
+          @isset($ptDarkForce)
+            @if($ptDarkForce &gt;= 1)
+            <i class="fas fa-circle"></i>
+            @endif
+            @if($ptDarkForce &gt;= 2)
+            <i class="fas fa-circle"></i>
+            @endif
+            @if($ptDarkForce &gt;= 3)
+            <i class="fas fa-circle"></i>
+            @endif
+            @if($ptDarkForce &gt;= 4)
+            <i class="fas fa-circle"></i>
+            @endif
+            @if($ptDarkForce &gt;= 5)
+            <i class="fas fa-circle"></i>
+            @endif
+            @if($ptDarkForce &gt;= 6)
+            @isset($_diffPtDarkForce)
+            <span>+ {{ $_diffPtDarkForce }}</span>
+            @endisset
+            @endif
+            @if($ptDarkForce &lt;= 4)
+            <i class="far fa-circle"></i>
+            @endif
+            @if($ptDarkForce &lt;= 3)
+            <i class="far fa-circle"></i>
+            @endif
+            @if($ptDarkForce &lt;= 2)
+            <i class="far fa-circle"></i>
+            @endif
+            @if($ptDarkForce &lt;= 1)
+            <i class="far fa-circle"></i>
+            @endif
+            @if($ptDarkForce &lt;= 0)
+            <i class="far fa-circle"></i>
+            @endif
+          @endisset
+        </div>
+      </div>
+    </div>
+    <div>
+      <h4>@i18n('Character Points')</h4>
+      <p>
+      @isset($ptCharacter)
+        @liveAttribute('ptCharacter')
+      @endisset
+      </p>
+    </div>
+    <div>
+      <h4>@i18n('Money')</h4>
+      <p>
+      @isset($money)
+        @liveAttribute('money')
+      @endisset
+      </p>
+    </div>
+    <div>
+      <h4>@i18n('Movement')</h4>
+      <p>
+      @isset($movement)
+        @liveAttribute('movement')
+      @endisset
+      </p>
+    </div>
+  </div>
+  <div class="skill-box">
+    <div>
+      <div>
+        <h3>@i18n('Dexterity')</h3>
+        @isset($dex_value)
+        <p class="score">@liveAttribute('dex_value')</p>
+        @endisset
+      </div>
+      <ul class="skills-list"><li>
+        @for($i = 1; $i &lt;= 20; $i++)
+          </li><li>
+          @isset(${"dex_skill_" . $i})
+            <p class="skill">{{ ${"dex_skill_" . $i} }}</p>
+            <p class="score">
+            @isset(${"dex_skill_" . $i . "_value"})
+            {{ ${"dex_skill_" . $i . "_value"} }}
+            @endisset
+            </p>
+          @endisset
+          
+        @endfor
+      </li></ul>
+    </div>
+    <div>
+      <div>
+        <h3>@i18n('Mechanical')</h3>
+        @isset($mec_value)
+        <p class="score">@liveAttribute('mec_value')</p>
+        @endisset
+      </div>
+      <ul class="skills-list"><li>
+        @for($i = 1; $i &lt;= 20; $i++)
+          </li><li>
+          @isset(${"mec_skill_" . $i})
+            <p class="skill">{{ ${"mec_skill_" . $i} }}</p>
+            <p class="score">
+            @isset(${"mec_skill_" . $i . "_value"})
+            {{ ${"mec_skill_" . $i . "_value"} }}
+            @endisset
+            </p>
+          @endisset
+        @endfor
+      </li></ul>
+    </div>
+    <div>
+      <div>
+        <h3>@i18n('Technical')</h3>
+        @isset($tech_value)
+        <p class="score">@liveAttribute('tech_value')</p>
+        @endisset
+      </div>
+      <ul class="skills-list"><li>
+        @for($i = 1; $i &lt;= 20; $i++)
+          </li><li>
+          @isset(${"tech_skill_" . $i})
+            <p class="skill">{{ ${"tech_skill_" . $i} }}</p>
+            <p class="score">
+            @isset(${"tech_skill_" . $i . "_value"})
+            {{ ${"tech_skill_" . $i . "_value"} }}
+            @endisset
+            </p>
+          @endisset
+        @endfor
+      </li></ul>
+    </div>
+    <div>
+      <div>
+        <h3>@i18n('Knowledge')</h3>
+        @isset($knw_value)
+        <p class="score">@liveAttribute('knw_value')</p>
+        @endisset
+      </div>
+      <ul class="skills-list"><li>
+        @for($i = 1; $i &lt;= 20; $i++)
+          </li><li>
+            @isset(${"knw_skill_" . $i})
+            <p class="skill">{{ ${"knw_skill_" . $i} }}</p>
+            <p class="score">
+            @isset(${"knw_skill_" . $i . "_value"})
+            {{ ${"knw_skill_" . $i . "_value"} }}
+            @endisset
+            </p>
+          @endisset
+        @endfor
+      </li></ul>
+    </div>
+    <div>
+      <div>
+        <h3>@i18n('Perception')</h3>
+        @isset($per_value)
+        <p class="score">@liveAttribute('per_value')</p>
+        @endisset
+      </div>
+      <ul class="skills-list"><li>
+        @for($i = 1; $i &lt;= 20; $i++)
+          </li><li>
+            @isset(${"per_skill_" . $i})
+            <p class="skill">{{ ${"per_skill_" . $i} }}</p>
+            <p class="score">
+            @isset(${"per_skill_" . $i . "_value"})
+            {{ ${"per_skill_" . $i . "_value"} }}
+            @endisset
+            </p>
+          @endisset
+        @endfor
+      </li></ul>
+    </div>
+    <div>
+      <div>
+        <h3>@i18n('Strength')</h3>
+        @isset($vig_value)
+        <p class="score">@liveAttribute('vig_value')</p>
+        @endisset
+      </div>
+      <ul class="skills-list"><li>
+        @for($i = 1; $i &lt;= 20; $i++)
+          </li><li>
+            @isset(${"vig_skill_" . $i})
+            <p class="skill">{{ ${"vig_skill_" . $i} }}</p>
+            <p class="score">
+            @isset(${"vig_skill_" . $i . "_value"})
+            {{ ${"vig_skill_" . $i . "_value"} }}
+            @endisset
+            </p>
+          @endisset
+        @endfor
+      </li></ul>
+    </div>
+  </div>
+  <div class="notes-box">
+    <div>
+      <h4>@i18n('Notes')</h4>
+      @isset($notes)
+        {!! $notes !!}
+      @endisset
+    </div>
+  </div>
+  <div class="infos-box">
+    <div>
+      <div>
+        <h4 class="inline-block">Xp: </h4>
+        <p class="inline-block">
+          @isset($experience)
+            @liveAttribute('experience')
+          @endisset
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- The code to paste on Kanka ends here -->
+
+</body>
+
+<!-- Kanka general attributes :
+_entity_name
+-->
+
+<!-- Specific attributes :
+job
+height
+weight
+catchphrase
+movement
+ptForce
+ptDarkForce
+ptCharacter
+money
+experience
+notes
+dex_value
+dex_skill_1
+dex_skill_1_value
+dex_skill_2
+dex_skill_2_value
+dex_skill_3
+dex_skill_3_value
+dex_skill_4
+dex_skill_4_value
+dex_skill_5
+dex_skill_5_value
+dex_skill_6
+dex_skill_6_value
+dex_skill_7
+dex_skill_7_value
+dex_skill_8
+dex_skill_8_value
+dex_skill_9
+dex_skill_9_value
+dex_skill_10
+dex_skill_10_value
+dex_skill_11
+dex_skill_11_value
+dex_skill_12
+dex_skill_12_value
+dex_skill_13
+dex_skill_13_value
+dex_skill_14
+dex_skill_14_value
+dex_skill_15
+dex_skill_15_value
+dex_skill_16
+dex_skill_16_value
+mec_value
+mec_skill_1
+mec_skill_1_value
+mec_skill_2
+mec_skill_2_value
+mec_skill_3
+mec_skill_3_value
+mec_skill_4
+mec_skill_4_value
+mec_skill_5
+mec_skill_5_value
+mec_skill_6
+mec_skill_6_value
+mec_skill_7
+mec_skill_7_value
+mec_skill_8
+mec_skill_8_value
+mec_skill_9
+mec_skill_9_value
+mec_skill_10
+mec_skill_10_value
+mec_skill_11
+mec_skill_11_value
+mec_skill_12
+mec_skill_12_value
+mec_skill_13
+mec_skill_13_value
+mec_skill_14
+mec_skill_14_value
+tech_value
+tech_skill_1
+tech_skill_1_value
+tech_skill_2
+tech_skill_2_value
+tech_skill_3
+tech_skill_3_value
+tech_skill_4
+tech_skill_4_value
+tech_skill_5
+tech_skill_5_value
+tech_skill_6
+tech_skill_6_value
+tech_skill_7
+tech_skill_7_value
+tech_skill_8
+tech_skill_8_value
+tech_skill_9
+tech_skill_9_value
+tech_skill_10
+tech_skill_10_value
+tech_skill_11
+tech_skill_11_value
+tech_skill_12
+tech_skill_12_value
+tech_skill_13
+tech_skill_13_value
+tech_skill_14
+tech_skill_14_value
+tech_skill_15
+tech_skill_15_value
+tech_skill_16
+tech_skill_16_value
+tech_skill_17
+tech_skill_17_value
+tech_skill_18
+tech_skill_18_value
+tech_skill_19
+tech_skill_19_value
+knw_value
+knw_skill_1
+knw_skill_1_value
+knw_skill_2
+knw_skill_2_value
+knw_skill_3
+knw_skill_3_value
+knw_skill_4
+knw_skill_4_value
+knw_skill_5
+knw_skill_5_value
+knw_skill_6
+knw_skill_6_value
+knw_skill_7
+knw_skill_7_value
+knw_skill_8
+knw_skill_8_value
+knw_skill_9
+knw_skill_9_value
+knw_skill_10
+knw_skill_10_value
+knw_skill_11
+knw_skill_11_value
+knw_skill_12
+knw_skill_12_value
+knw_skill_13
+knw_skill_13_value
+per_value
+per_skill_1
+per_skill_1_value
+per_skill_2
+per_skill_2_value
+per_skill_3
+per_skill_3_value
+per_skill_4
+per_skill_4_value
+per_skill_5
+per_skill_5_value
+per_skill_6
+per_skill_6_value
+per_skill_7
+per_skill_7_value
+per_skill_8
+per_skill_8_value
+per_skill_9
+per_skill_9_value
+vig_value
+vig_skill_1
+vig_skill_1_value
+vig_skill_2
+vig_skill_2_value
+vig_skill_3
+vig_skill_3_value
+vig_skill_4
+vig_skill_4_value
+vig_skill_5
+vig_skill_5_value
+vig_skill_6
+vig_skill_6_value
+
+Internal Attributes :
+_diffPtForce
+_diffPtDarkForce
+-->
+
+<script>
+	// Scrub PHP syntax during dev preview
+	const body = document.body;
+  let parsedBody = body.innerHTML;
+  // Replace attribute values
+  parsedBody = parsedBody.replace(/(\{\{|\{!!)+.*(\}\}|(!!)\})+/g, '?');
+  // Replace live attribute values
+  parsedBody = parsedBody.replace(/@liveAttribute\(.*\)/g, '?');
+  // Replace i18n values
+  parsedBody = parsedBody.replace(/@i18n\('(.*)'\)/g, '$1');
+  // Replace other php syntax
+	parsedBody = parsedBody.replace(/@+.*/g,'');
+  body.innerHTML = parsedBody;
+</script>
+	
+</html>

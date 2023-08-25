@@ -1,0 +1,127 @@
+.swd6-character-sheet {
+  display: grid;
+  grid-template-areas:
+    "header header header header header icon"
+    "force force force force force force"
+    "skills skills skills skills skills skills"
+    "notes notes notes notes notes infos";
+  gap: 10px;
+  max-width: 1000px;
+  padding: 10px;
+}
+.swd6-character-sheet h3 {
+  margin: 0;
+  display: inline-block;
+  text-transform: uppercase;
+}
+.swd6-character-sheet h4 {
+  margin: 0;
+  font-size: 14px;
+}
+.swd6-character-sheet p {
+  margin: 0;
+  margin-top: 0.5rem;
+}
+.swd6-character-sheet .skill {
+  margin-top: 0;
+  display: inline-block;
+}
+.inline-block {
+  display: inline-block;
+}
+.header-box > div,
+.force-box > div,
+.skill-box > div,
+.notes-box > div {
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 5px;
+}
+.header-box {
+  grid-area: header;
+  display: grid;
+  grid-template-areas:
+    "name job quote quote"
+    "height weight quote quote";
+  gap: 10px;
+}
+.icon-box {
+  grid-area: icon;
+  text-align: center;
+  align-self: center;
+}
+.icon-box > i {
+  font-size: 9rem;
+}
+.name-box {
+  grid-area: name;
+}
+.job-box {
+  grid-area: job;
+}
+.quote-box {
+  grid-area: quote;
+}
+.height-box {
+  grid-area: height;
+}
+.weight-box {
+  grid-area: weight;
+}
+.force-box {
+  grid-area: force;
+  display: grid;
+  grid-template-columns: 2fr repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+.skill-box {
+  grid-area: skills;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+.skills-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 11px;
+}
+.skills-list li:nth-child(even) {
+  background-color: #33333350;
+}
+.advanced-skill {
+  font-weight: bold;
+}
+.spe-list {
+  list-style: none;
+  padding-left: 1rem;
+}
+.spe-list > li {
+  font-style: italic;
+}
+.notes-box {
+  grid-area: notes;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+.infos-box {
+  grid-area: infos;
+  margin-top: 10px;
+}
+.force-content {
+  margin: 0.25em 0;
+}
+.force-content h4 {
+  width: 30%;
+}
+.force-content.light-force > div {
+  color: green;
+}
+.force-content.dark-force > div {
+  color: red;
+}
+.swd6-character-sheet .score {
+  margin: 0;
+  float: right;
+}
