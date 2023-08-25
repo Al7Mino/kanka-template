@@ -1,7 +1,11 @@
+.swd6-container {
+  container-type: inline-size;
+  container-name: swd6-character-sheet;
+}
 .swd6-character-sheet {
   display: grid;
   grid-template-areas:
-    "header header header header header icon"
+    "header header header header header header"
     "force force force force force force"
     "skills skills skills skills skills skills"
     "notes notes notes notes notes infos";
@@ -26,10 +30,13 @@
   margin-top: 0;
   display: inline-block;
 }
+.swd6-character-sheet > .icon-box {
+  display: none;
+}
 .inline-block {
   display: inline-block;
 }
-.header-box > div,
+.header-box > div:not(.icon-box),
 .force-box > div,
 .skill-box > div,
 .notes-box > div {
@@ -41,9 +48,14 @@
   grid-area: header;
   display: grid;
   grid-template-areas:
-    "name job quote quote"
-    "height weight quote quote";
+    "name job"
+    "height weight"
+    "quote quote"
+    "quote quote";
   gap: 10px;
+}
+.header-box > .icon-box {
+  display: none;
 }
 .icon-box {
   grid-area: icon;
@@ -71,14 +83,14 @@
 .force-box {
   grid-area: force;
   display: grid;
-  grid-template-columns: 2fr repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   margin-top: 10px;
 }
 .skill-box {
   grid-area: skills;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 10px;
   margin-top: 10px;
 }
@@ -124,4 +136,56 @@
 .swd6-character-sheet .score {
   margin: 0;
   float: right;
+}
+
+@container swd6-character-sheet (min-width: 460px) {
+  .swd6-character-sheet {
+    grid-template-areas:
+      "header header header header header header"
+      "force force force force force force"
+      "skills skills skills skills skills skills"
+      "notes notes notes notes notes infos";
+  }
+  .swd6-character-sheet > .icon-box {
+    display: none;
+  }
+  .header-box {
+    grid-template-areas:
+      "name job height weight"
+      "quote quote icon icon"
+      "quote quote icon icon";
+  }
+  .header-box .icon-box {
+    display: block;
+  }
+  .force-box {
+    grid-template-columns: 2fr repeat(3, 1fr);
+  }
+  .skill-box {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@container swd6-character-sheet (min-width: 700px) {
+  .swd6-character-sheet {
+    grid-template-areas:
+      "header header header header header icon"
+      "force force force force force force"
+      "skills skills skills skills skills skills"
+      "notes notes notes notes notes infos";
+  }
+  .swd6-character-sheet > .icon-box {
+    display: block;
+  }
+  .header-box {
+    grid-template-areas:
+      "name job quote quote"
+      "height weight quote quote";
+  }
+  .header-box > .icon-box {
+    display: none;
+  }
+  .skill-box {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

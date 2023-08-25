@@ -14,306 +14,311 @@
 
 <!-- The code to paste on Kanka starts here -->
 
-<div class="swd6-character-sheet">
-  <div class="header-box">
-    <div class="name-box">
-      <h4>@i18n('Name')</h4>
-      <p>{{$_entity_name}}</p>
-    </div>
-    <div class="job-box">
-      <h4>@i18n('Job')</h4>
-      <p>
-      @isset($job)
-        @liveAttribute('job')
-      @endisset
-      </p>
-    </div>
-    <div class="height-box">
-      <h4>@i18n('Height')</h4>
-      <p>
-      @isset($height)
-        @liveAttribute('height')
-      @endisset
-      </p>
-    </div>
-    <div class="weight-box">
-      <h4>@i18n('Weight')</h4>
-      <p>
-      @isset($weight)
-        @liveAttribute('weight')
-      @endisset
-      </p>
-    </div>
-    <div class="quote-box">
-      <h4>@i18n('Catchphrase')</h4>
-      <p>
-      @isset($catchphrase)
-        {!! $catchphrase !!}
-      @endisset
-      </p>
-    </div>
-  </div>
-  <div class="icon-box">
-    <i class="fab fa-jedi-order"></i>
-  </div>
-  <div class="force-box">
-    <div>
-      <div class="force-content light-force">
-        <h4 class="inline-block">@i18n('Force Points')</h4>
-        <div class="inline-block">
-          @isset($ptForce)
-            @if($ptForce &gt;= 1)
-            <i class="fas fa-circle"></i>
-            @endif
-            @if($ptForce &gt;= 2)
-            <i class="fas fa-circle"></i>
-            @endif
-            @if($ptForce &gt;= 3)
-            <i class="fas fa-circle"></i>
-            @endif
-            @if($ptForce &gt;= 4)
-            <i class="fas fa-circle"></i>
-            @endif
-            @if($ptForce &gt;= 5)
-            <i class="fas fa-circle"></i>
-            @endif
-            @if($ptForce &gt;= 6)
-            @isset($_diffPtForce)
-            <span>+ {{ $_diffPtForce }}</span>
-            @endisset
-            @endif
-            @if($ptForce &lt;= 4)
-            <i class="far fa-circle"></i>
-            @endif
-            @if($ptForce &lt;= 3)
-            <i class="far fa-circle"></i>
-            @endif
-            @if($ptForce &lt;= 2)
-            <i class="far fa-circle"></i>
-            @endif
-            @if($ptForce &lt;= 1)
-            <i class="far fa-circle"></i>
-            @endif
-            @if($ptForce &lt;= 0)
-            <i class="far fa-circle"></i>
-            @endif
-          @endisset
-        </div>
+<div class="swd6-container">
+  <div class="swd6-character-sheet">
+    <div class="header-box">
+      <div class="name-box">
+        <h4>@i18n('Name')</h4>
+        <p>{{$_entity_name}}</p>
       </div>
-      <div class="force-content dark-force">
-        <h4 class="inline-block">@i18n('Dark Points')</h4>
-        <div class="inline-block">
-          @isset($ptDarkForce)
-            @if($ptDarkForce &gt;= 1)
-            <i class="fas fa-circle"></i>
-            @endif
-            @if($ptDarkForce &gt;= 2)
-            <i class="fas fa-circle"></i>
-            @endif
-            @if($ptDarkForce &gt;= 3)
-            <i class="fas fa-circle"></i>
-            @endif
-            @if($ptDarkForce &gt;= 4)
-            <i class="fas fa-circle"></i>
-            @endif
-            @if($ptDarkForce &gt;= 5)
-            <i class="fas fa-circle"></i>
-            @endif
-            @if($ptDarkForce &gt;= 6)
-            @isset($_diffPtDarkForce)
-            <span>+ {{ $_diffPtDarkForce }}</span>
-            @endisset
-            @endif
-            @if($ptDarkForce &lt;= 4)
-            <i class="far fa-circle"></i>
-            @endif
-            @if($ptDarkForce &lt;= 3)
-            <i class="far fa-circle"></i>
-            @endif
-            @if($ptDarkForce &lt;= 2)
-            <i class="far fa-circle"></i>
-            @endif
-            @if($ptDarkForce &lt;= 1)
-            <i class="far fa-circle"></i>
-            @endif
-            @if($ptDarkForce &lt;= 0)
-            <i class="far fa-circle"></i>
-            @endif
-          @endisset
-        </div>
-      </div>
-    </div>
-    <div>
-      <h4>@i18n('Character Points')</h4>
-      <p>
-      @isset($ptCharacter)
-        @liveAttribute('ptCharacter')
-      @endisset
-      </p>
-    </div>
-    <div>
-      <h4>@i18n('Money')</h4>
-      <p>
-      @isset($money)
-        @liveAttribute('money')
-      @endisset
-      </p>
-    </div>
-    <div>
-      <h4>@i18n('Movement')</h4>
-      <p>
-      @isset($movement)
-        @liveAttribute('movement')
-      @endisset
-      </p>
-    </div>
-  </div>
-  <div class="skill-box">
-    <div>
-      <div>
-        <h3>@i18n('Dexterity')</h3>
-        @isset($dex_value)
-        <p class="score">@liveAttribute('dex_value')</p>
+      <div class="job-box">
+        <h4>@i18n('Job')</h4>
+        <p>
+        @isset($job)
+          @liveAttribute('job')
         @endisset
-      </div>
-      <ul class="skills-list"><li>
-        @for($i = 1; $i &lt;= 20; $i++)
-          </li><li>
-          @isset(${"dex_skill_" . $i})
-            <p class="skill">{{ ${"dex_skill_" . $i} }}</p>
-            <p class="score">
-            @isset(${"dex_skill_" . $i . "_value"})
-            {{ ${"dex_skill_" . $i . "_value"} }}
-            @endisset
-            </p>
-          @endisset
-          
-        @endfor
-      </li></ul>
-    </div>
-    <div>
-      <div>
-        <h3>@i18n('Mechanical')</h3>
-        @isset($mec_value)
-        <p class="score">@liveAttribute('mec_value')</p>
-        @endisset
-      </div>
-      <ul class="skills-list"><li>
-        @for($i = 1; $i &lt;= 20; $i++)
-          </li><li>
-          @isset(${"mec_skill_" . $i})
-            <p class="skill">{{ ${"mec_skill_" . $i} }}</p>
-            <p class="score">
-            @isset(${"mec_skill_" . $i . "_value"})
-            {{ ${"mec_skill_" . $i . "_value"} }}
-            @endisset
-            </p>
-          @endisset
-        @endfor
-      </li></ul>
-    </div>
-    <div>
-      <div>
-        <h3>@i18n('Technical')</h3>
-        @isset($tech_value)
-        <p class="score">@liveAttribute('tech_value')</p>
-        @endisset
-      </div>
-      <ul class="skills-list"><li>
-        @for($i = 1; $i &lt;= 20; $i++)
-          </li><li>
-          @isset(${"tech_skill_" . $i})
-            <p class="skill">{{ ${"tech_skill_" . $i} }}</p>
-            <p class="score">
-            @isset(${"tech_skill_" . $i . "_value"})
-            {{ ${"tech_skill_" . $i . "_value"} }}
-            @endisset
-            </p>
-          @endisset
-        @endfor
-      </li></ul>
-    </div>
-    <div>
-      <div>
-        <h3>@i18n('Knowledge')</h3>
-        @isset($knw_value)
-        <p class="score">@liveAttribute('knw_value')</p>
-        @endisset
-      </div>
-      <ul class="skills-list"><li>
-        @for($i = 1; $i &lt;= 20; $i++)
-          </li><li>
-            @isset(${"knw_skill_" . $i})
-            <p class="skill">{{ ${"knw_skill_" . $i} }}</p>
-            <p class="score">
-            @isset(${"knw_skill_" . $i . "_value"})
-            {{ ${"knw_skill_" . $i . "_value"} }}
-            @endisset
-            </p>
-          @endisset
-        @endfor
-      </li></ul>
-    </div>
-    <div>
-      <div>
-        <h3>@i18n('Perception')</h3>
-        @isset($per_value)
-        <p class="score">@liveAttribute('per_value')</p>
-        @endisset
-      </div>
-      <ul class="skills-list"><li>
-        @for($i = 1; $i &lt;= 20; $i++)
-          </li><li>
-            @isset(${"per_skill_" . $i})
-            <p class="skill">{{ ${"per_skill_" . $i} }}</p>
-            <p class="score">
-            @isset(${"per_skill_" . $i . "_value"})
-            {{ ${"per_skill_" . $i . "_value"} }}
-            @endisset
-            </p>
-          @endisset
-        @endfor
-      </li></ul>
-    </div>
-    <div>
-      <div>
-        <h3>@i18n('Strength')</h3>
-        @isset($vig_value)
-        <p class="score">@liveAttribute('vig_value')</p>
-        @endisset
-      </div>
-      <ul class="skills-list"><li>
-        @for($i = 1; $i &lt;= 20; $i++)
-          </li><li>
-            @isset(${"vig_skill_" . $i})
-            <p class="skill">{{ ${"vig_skill_" . $i} }}</p>
-            <p class="score">
-            @isset(${"vig_skill_" . $i . "_value"})
-            {{ ${"vig_skill_" . $i . "_value"} }}
-            @endisset
-            </p>
-          @endisset
-        @endfor
-      </li></ul>
-    </div>
-  </div>
-  <div class="notes-box">
-    <div>
-      <h4>@i18n('Notes')</h4>
-      @isset($notes)
-        {!! $notes !!}
-      @endisset
-    </div>
-  </div>
-  <div class="infos-box">
-    <div>
-      <div>
-        <h4 class="inline-block">Xp: </h4>
-        <p class="inline-block">
-          @isset($experience)
-            @liveAttribute('experience')
-          @endisset
         </p>
+      </div>
+      <div class="height-box">
+        <h4>@i18n('Height')</h4>
+        <p>
+        @isset($height)
+          @liveAttribute('height')
+        @endisset
+        </p>
+      </div>
+      <div class="weight-box">
+        <h4>@i18n('Weight')</h4>
+        <p>
+        @isset($weight)
+          @liveAttribute('weight')
+        @endisset
+        </p>
+      </div>
+      <div class="quote-box">
+        <h4>@i18n('Catchphrase')</h4>
+        <p>
+        @isset($catchphrase)
+          {!! $catchphrase !!}
+        @endisset
+        </p>
+      </div>
+      <div class="icon-box">
+        <i class="fab fa-jedi-order"></i>
+      </div>
+    </div>
+    <div class="icon-box">
+      <i class="fab fa-jedi-order"></i>
+    </div>
+    <div class="force-box">
+      <div>
+        <div class="force-content light-force">
+          <h4 class="inline-block">@i18n('Force Points')</h4>
+          <div class="inline-block">
+            @isset($ptForce)
+              @if($ptForce &gt;= 1)
+              <i class="fas fa-circle"></i>
+              @endif
+              @if($ptForce &gt;= 2)
+              <i class="fas fa-circle"></i>
+              @endif
+              @if($ptForce &gt;= 3)
+              <i class="fas fa-circle"></i>
+              @endif
+              @if($ptForce &gt;= 4)
+              <i class="fas fa-circle"></i>
+              @endif
+              @if($ptForce &gt;= 5)
+              <i class="fas fa-circle"></i>
+              @endif
+              @if($ptForce &gt;= 6)
+              @isset($_diffPtForce)
+              <span>+ {{ $_diffPtForce }}</span>
+              @endisset
+              @endif
+              @if($ptForce &lt;= 4)
+              <i class="far fa-circle"></i>
+              @endif
+              @if($ptForce &lt;= 3)
+              <i class="far fa-circle"></i>
+              @endif
+              @if($ptForce &lt;= 2)
+              <i class="far fa-circle"></i>
+              @endif
+              @if($ptForce &lt;= 1)
+              <i class="far fa-circle"></i>
+              @endif
+              @if($ptForce &lt;= 0)
+              <i class="far fa-circle"></i>
+              @endif
+            @endisset
+          </div>
+        </div>
+        <div class="force-content dark-force">
+          <h4 class="inline-block">@i18n('Dark Points')</h4>
+          <div class="inline-block">
+            @isset($ptDarkForce)
+              @if($ptDarkForce &gt;= 1)
+              <i class="fas fa-circle"></i>
+              @endif
+              @if($ptDarkForce &gt;= 2)
+              <i class="fas fa-circle"></i>
+              @endif
+              @if($ptDarkForce &gt;= 3)
+              <i class="fas fa-circle"></i>
+              @endif
+              @if($ptDarkForce &gt;= 4)
+              <i class="fas fa-circle"></i>
+              @endif
+              @if($ptDarkForce &gt;= 5)
+              <i class="fas fa-circle"></i>
+              @endif
+              @if($ptDarkForce &gt;= 6)
+              @isset($_diffPtDarkForce)
+              <span>+ {{ $_diffPtDarkForce }}</span>
+              @endisset
+              @endif
+              @if($ptDarkForce &lt;= 4)
+              <i class="far fa-circle"></i>
+              @endif
+              @if($ptDarkForce &lt;= 3)
+              <i class="far fa-circle"></i>
+              @endif
+              @if($ptDarkForce &lt;= 2)
+              <i class="far fa-circle"></i>
+              @endif
+              @if($ptDarkForce &lt;= 1)
+              <i class="far fa-circle"></i>
+              @endif
+              @if($ptDarkForce &lt;= 0)
+              <i class="far fa-circle"></i>
+              @endif
+            @endisset
+          </div>
+        </div>
+      </div>
+      <div>
+        <h4>@i18n('Character Points')</h4>
+        <p>
+        @isset($ptCharacter)
+          @liveAttribute('ptCharacter')
+        @endisset
+        </p>
+      </div>
+      <div>
+        <h4>@i18n('Money')</h4>
+        <p>
+        @isset($money)
+          @liveAttribute('money')
+        @endisset
+        </p>
+      </div>
+      <div>
+        <h4>@i18n('Movement')</h4>
+        <p>
+        @isset($movement)
+          @liveAttribute('movement')
+        @endisset
+        </p>
+      </div>
+    </div>
+    <div class="skill-box">
+      <div>
+        <div>
+          <h3>@i18n('Dexterity')</h3>
+          @isset($dex_value)
+          <p class="score">@liveAttribute('dex_value')</p>
+          @endisset
+        </div>
+        <ul class="skills-list"><li>
+          @for($i = 1; $i &lt;= 20; $i++)
+            </li><li>
+            @isset(${"dex_skill_" . $i})
+              <p class="skill">{{ ${"dex_skill_" . $i} }}</p>
+              <p class="score">
+              @isset(${"dex_skill_" . $i . "_value"})
+              {{ ${"dex_skill_" . $i . "_value"} }}
+              @endisset
+              </p>
+            @endisset
+            
+          @endfor
+        </li></ul>
+      </div>
+      <div>
+        <div>
+          <h3>@i18n('Mechanical')</h3>
+          @isset($mec_value)
+          <p class="score">@liveAttribute('mec_value')</p>
+          @endisset
+        </div>
+        <ul class="skills-list"><li>
+          @for($i = 1; $i &lt;= 20; $i++)
+            </li><li>
+            @isset(${"mec_skill_" . $i})
+              <p class="skill">{{ ${"mec_skill_" . $i} }}</p>
+              <p class="score">
+              @isset(${"mec_skill_" . $i . "_value"})
+              {{ ${"mec_skill_" . $i . "_value"} }}
+              @endisset
+              </p>
+            @endisset
+          @endfor
+        </li></ul>
+      </div>
+      <div>
+        <div>
+          <h3>@i18n('Technical')</h3>
+          @isset($tech_value)
+          <p class="score">@liveAttribute('tech_value')</p>
+          @endisset
+        </div>
+        <ul class="skills-list"><li>
+          @for($i = 1; $i &lt;= 20; $i++)
+            </li><li>
+            @isset(${"tech_skill_" . $i})
+              <p class="skill">{{ ${"tech_skill_" . $i} }}</p>
+              <p class="score">
+              @isset(${"tech_skill_" . $i . "_value"})
+              {{ ${"tech_skill_" . $i . "_value"} }}
+              @endisset
+              </p>
+            @endisset
+          @endfor
+        </li></ul>
+      </div>
+      <div>
+        <div>
+          <h3>@i18n('Knowledge')</h3>
+          @isset($knw_value)
+          <p class="score">@liveAttribute('knw_value')</p>
+          @endisset
+        </div>
+        <ul class="skills-list"><li>
+          @for($i = 1; $i &lt;= 20; $i++)
+            </li><li>
+              @isset(${"knw_skill_" . $i})
+              <p class="skill">{{ ${"knw_skill_" . $i} }}</p>
+              <p class="score">
+              @isset(${"knw_skill_" . $i . "_value"})
+              {{ ${"knw_skill_" . $i . "_value"} }}
+              @endisset
+              </p>
+            @endisset
+          @endfor
+        </li></ul>
+      </div>
+      <div>
+        <div>
+          <h3>@i18n('Perception')</h3>
+          @isset($per_value)
+          <p class="score">@liveAttribute('per_value')</p>
+          @endisset
+        </div>
+        <ul class="skills-list"><li>
+          @for($i = 1; $i &lt;= 20; $i++)
+            </li><li>
+              @isset(${"per_skill_" . $i})
+              <p class="skill">{{ ${"per_skill_" . $i} }}</p>
+              <p class="score">
+              @isset(${"per_skill_" . $i . "_value"})
+              {{ ${"per_skill_" . $i . "_value"} }}
+              @endisset
+              </p>
+            @endisset
+          @endfor
+        </li></ul>
+      </div>
+      <div>
+        <div>
+          <h3>@i18n('Strength')</h3>
+          @isset($vig_value)
+          <p class="score">@liveAttribute('vig_value')</p>
+          @endisset
+        </div>
+        <ul class="skills-list"><li>
+          @for($i = 1; $i &lt;= 20; $i++)
+            </li><li>
+              @isset(${"vig_skill_" . $i})
+              <p class="skill">{{ ${"vig_skill_" . $i} }}</p>
+              <p class="score">
+              @isset(${"vig_skill_" . $i . "_value"})
+              {{ ${"vig_skill_" . $i . "_value"} }}
+              @endisset
+              </p>
+            @endisset
+          @endfor
+        </li></ul>
+      </div>
+    </div>
+    <div class="notes-box">
+      <div>
+        <h4>@i18n('Notes')</h4>
+        @isset($notes)
+          {!! $notes !!}
+        @endisset
+      </div>
+    </div>
+    <div class="infos-box">
+      <div>
+        <div>
+          <h4 class="inline-block">Xp: </h4>
+          <p class="inline-block">
+            @isset($experience)
+              @liveAttribute('experience')
+            @endisset
+          </p>
+        </div>
       </div>
     </div>
   </div>
