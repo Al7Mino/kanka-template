@@ -66,39 +66,39 @@
           <h4 class="inline-block">@i18n('Force Points')</h4>
           <div class="inline-block">
             @isset($ptForce)
-              @if($ptForce &gt;= 1)
+              @if($ptForce >= 1)
               <i class="fas fa-circle"></i>
               @endif
-              @if($ptForce &gt;= 2)
+              @if($ptForce >= 2)
               <i class="fas fa-circle"></i>
               @endif
-              @if($ptForce &gt;= 3)
+              @if($ptForce >= 3)
               <i class="fas fa-circle"></i>
               @endif
-              @if($ptForce &gt;= 4)
+              @if($ptForce >= 4)
               <i class="fas fa-circle"></i>
               @endif
-              @if($ptForce &gt;= 5)
+              @if($ptForce >= 5)
               <i class="fas fa-circle"></i>
               @endif
-              @if($ptForce &gt;= 6)
+              @if($ptForce >= 6)
               @isset($_diffPtForce)
               <span>+ {{ $_diffPtForce }}</span>
               @endisset
               @endif
-              @if($ptForce &lt;= 4)
+              @if($ptForce <= 4)
               <i class="far fa-circle"></i>
               @endif
-              @if($ptForce &lt;= 3)
+              @if($ptForce <= 3)
               <i class="far fa-circle"></i>
               @endif
-              @if($ptForce &lt;= 2)
+              @if($ptForce <= 2)
               <i class="far fa-circle"></i>
               @endif
-              @if($ptForce &lt;= 1)
+              @if($ptForce <= 1)
               <i class="far fa-circle"></i>
               @endif
-              @if($ptForce &lt;= 0)
+              @if($ptForce <= 0)
               <i class="far fa-circle"></i>
               @endif
             @endisset
@@ -108,39 +108,39 @@
           <h4 class="inline-block">@i18n('Dark Points')</h4>
           <div class="inline-block">
             @isset($ptDarkForce)
-              @if($ptDarkForce &gt;= 1)
+              @if($ptDarkForce >= 1)
               <i class="fas fa-circle"></i>
               @endif
-              @if($ptDarkForce &gt;= 2)
+              @if($ptDarkForce >= 2)
               <i class="fas fa-circle"></i>
               @endif
-              @if($ptDarkForce &gt;= 3)
+              @if($ptDarkForce >= 3)
               <i class="fas fa-circle"></i>
               @endif
-              @if($ptDarkForce &gt;= 4)
+              @if($ptDarkForce >= 4)
               <i class="fas fa-circle"></i>
               @endif
-              @if($ptDarkForce &gt;= 5)
+              @if($ptDarkForce >= 5)
               <i class="fas fa-circle"></i>
               @endif
-              @if($ptDarkForce &gt;= 6)
+              @if($ptDarkForce >= 6)
               @isset($_diffPtDarkForce)
               <span>+ {{ $_diffPtDarkForce }}</span>
               @endisset
               @endif
-              @if($ptDarkForce &lt;= 4)
+              @if($ptDarkForce <= 4)
               <i class="far fa-circle"></i>
               @endif
-              @if($ptDarkForce &lt;= 3)
+              @if($ptDarkForce <= 3)
               <i class="far fa-circle"></i>
               @endif
-              @if($ptDarkForce &lt;= 2)
+              @if($ptDarkForce <= 2)
               <i class="far fa-circle"></i>
               @endif
-              @if($ptDarkForce &lt;= 1)
+              @if($ptDarkForce <= 1)
               <i class="far fa-circle"></i>
               @endif
-              @if($ptDarkForce &lt;= 0)
+              @if($ptDarkForce <= 0)
               <i class="far fa-circle"></i>
               @endif
             @endisset
@@ -181,7 +181,7 @@
           @endisset
         </div>
         <ul class="skills-list"><li>
-          @for($i = 1; $i &lt;= 20; $i++)
+          @for($i = 1; $i <= 20; $i++)
             </li><li>
             @isset(${"dex_skill_" . $i})
               <p class="skill">{{ ${"dex_skill_" . $i} }}</p>
@@ -203,7 +203,7 @@
           @endisset
         </div>
         <ul class="skills-list"><li>
-          @for($i = 1; $i &lt;= 20; $i++)
+          @for($i = 1; $i <= 20; $i++)
             </li><li>
             @isset(${"mec_skill_" . $i})
               <p class="skill">{{ ${"mec_skill_" . $i} }}</p>
@@ -224,7 +224,7 @@
           @endisset
         </div>
         <ul class="skills-list"><li>
-          @for($i = 1; $i &lt;= 20; $i++)
+          @for($i = 1; $i <= 20; $i++)
             </li><li>
             @isset(${"tech_skill_" . $i})
               <p class="skill">{{ ${"tech_skill_" . $i} }}</p>
@@ -245,7 +245,7 @@
           @endisset
         </div>
         <ul class="skills-list"><li>
-          @for($i = 1; $i &lt;= 20; $i++)
+          @for($i = 1; $i <= 20; $i++)
             </li><li>
               @isset(${"knw_skill_" . $i})
               <p class="skill">{{ ${"knw_skill_" . $i} }}</p>
@@ -266,7 +266,7 @@
           @endisset
         </div>
         <ul class="skills-list"><li>
-          @for($i = 1; $i &lt;= 20; $i++)
+          @for($i = 1; $i <= 20; $i++)
             </li><li>
               @isset(${"per_skill_" . $i})
               <p class="skill">{{ ${"per_skill_" . $i} }}</p>
@@ -287,7 +287,7 @@
           @endisset
         </div>
         <ul class="skills-list"><li>
-          @for($i = 1; $i &lt;= 20; $i++)
+          @for($i = 1; $i <= 20; $i++)
             </li><li>
               @isset(${"vig_skill_" . $i})
               <p class="skill">{{ ${"vig_skill_" . $i} }}</p>
