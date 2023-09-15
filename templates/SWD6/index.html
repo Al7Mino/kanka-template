@@ -25,7 +25,7 @@
         <h4>@i18n('Job')</h4>
         <p>
         @isset($job)
-          @liveAttribute('job')
+        	@liveAttribute('job')
         @endisset
         </p>
       </div>
@@ -33,7 +33,7 @@
         <h4>@i18n('Height')</h4>
         <p>
         @isset($height)
-          @liveAttribute('height')
+        	@liveAttribute('height')
         @endisset
         </p>
       </div>
@@ -41,7 +41,7 @@
         <h4>@i18n('Weight')</h4>
         <p>
         @isset($weight)
-          @liveAttribute('weight')
+        	@liveAttribute('weight')
         @endisset
         </p>
       </div>
@@ -49,12 +49,9 @@
         <h4>@i18n('Catchphrase')</h4>
         <p>
         @isset($catchphrase)
-          {!! $catchphrase !!}
+        	{!! $catchphrase !!}
         @endisset
         </p>
-      </div>
-      <div class="icon-box">
-        <i class="fab fa-jedi-order"></i>
       </div>
     </div>
     <div class="icon-box">
@@ -65,7 +62,7 @@
         <div class="force-content light-force">
           <h4 class="inline-block">@i18n('Force Points')</h4>
           <div class="inline-block">
-            @isset($ptForce)
+          	@isset($ptForce)
               @if($ptForce >= 1)
               <i class="fas fa-circle"></i>
               @endif
@@ -107,7 +104,7 @@
         <div class="force-content dark-force">
           <h4 class="inline-block">@i18n('Dark Points')</h4>
           <div class="inline-block">
-            @isset($ptDarkForce)
+          	@isset($ptDarkForce)
               @if($ptDarkForce >= 1)
               <i class="fas fa-circle"></i>
               @endif
@@ -151,7 +148,7 @@
         <h4>@i18n('Character Points')</h4>
         <p>
         @isset($ptCharacter)
-          @liveAttribute('ptCharacter')
+        	@liveAttribute('ptCharacter')
         @endisset
         </p>
       </div>
@@ -159,7 +156,7 @@
         <h4>@i18n('Money')</h4>
         <p>
         @isset($money)
-          @liveAttribute('money')
+        	@liveAttribute('money')
         @endisset
         </p>
       </div>
@@ -167,7 +164,7 @@
         <h4>@i18n('Movement')</h4>
         <p>
         @isset($movement)
-          @liveAttribute('movement')
+        	@liveAttribute('movement')
         @endisset
         </p>
       </div>
@@ -180,9 +177,9 @@
           <p class="score">@liveAttribute('dex_value')</p>
           @endisset
         </div>
-        <ul class="skills-list"><li>
+        <ul class="skills-list">
           @for($i = 1; $i <= 20; $i++)
-            </li><li>
+            <li>
             @isset(${"dex_skill_" . $i})
               <p class="skill">{{ ${"dex_skill_" . $i} }}</p>
               <p class="score">
@@ -191,9 +188,9 @@
               @endisset
               </p>
             @endisset
-            
+            </li>
           @endfor
-        </li></ul>
+        </ul>
       </div>
       <div>
         <div>
@@ -202,9 +199,9 @@
           <p class="score">@liveAttribute('mec_value')</p>
           @endisset
         </div>
-        <ul class="skills-list"><li>
+        <ul class="skills-list">
           @for($i = 1; $i <= 20; $i++)
-            </li><li>
+            <li>
             @isset(${"mec_skill_" . $i})
               <p class="skill">{{ ${"mec_skill_" . $i} }}</p>
               <p class="score">
@@ -213,8 +210,9 @@
               @endisset
               </p>
             @endisset
+            </li>
           @endfor
-        </li></ul>
+        </ul>
       </div>
       <div>
         <div>
@@ -223,9 +221,9 @@
           <p class="score">@liveAttribute('tech_value')</p>
           @endisset
         </div>
-        <ul class="skills-list"><li>
+        <ul class="skills-list">
           @for($i = 1; $i <= 20; $i++)
-            </li><li>
+            <li>
             @isset(${"tech_skill_" . $i})
               <p class="skill">{{ ${"tech_skill_" . $i} }}</p>
               <p class="score">
@@ -234,8 +232,9 @@
               @endisset
               </p>
             @endisset
+            </li>
           @endfor
-        </li></ul>
+        </ul>
       </div>
       <div>
         <div>
@@ -244,9 +243,9 @@
           <p class="score">@liveAttribute('knw_value')</p>
           @endisset
         </div>
-        <ul class="skills-list"><li>
+        <ul class="skills-list">
           @for($i = 1; $i <= 20; $i++)
-            </li><li>
+            <li>
               @isset(${"knw_skill_" . $i})
               <p class="skill">{{ ${"knw_skill_" . $i} }}</p>
               <p class="score">
@@ -255,8 +254,9 @@
               @endisset
               </p>
             @endisset
+            </li>
           @endfor
-        </li></ul>
+        </ul>
       </div>
       <div>
         <div>
@@ -265,9 +265,9 @@
           <p class="score">@liveAttribute('per_value')</p>
           @endisset
         </div>
-        <ul class="skills-list"><li>
+        <ul class="skills-list">
           @for($i = 1; $i <= 20; $i++)
-            </li><li>
+            <li>
               @isset(${"per_skill_" . $i})
               <p class="skill">{{ ${"per_skill_" . $i} }}</p>
               <p class="score">
@@ -276,8 +276,9 @@
               @endisset
               </p>
             @endisset
+            </li>
           @endfor
-        </li></ul>
+        </ul>
       </div>
       <div>
         <div>
@@ -286,9 +287,9 @@
           <p class="score">@liveAttribute('vig_value')</p>
           @endisset
         </div>
-        <ul class="skills-list"><li>
+        <ul class="skills-list">
           @for($i = 1; $i <= 20; $i++)
-            </li><li>
+            <li>
               @isset(${"vig_skill_" . $i})
               <p class="skill">{{ ${"vig_skill_" . $i} }}</p>
               <p class="score">
@@ -297,15 +298,16 @@
               @endisset
               </p>
             @endisset
+            </li>
           @endfor
-        </li></ul>
+        </ul>
       </div>
     </div>
     <div class="notes-box">
       <div>
         <h4>@i18n('Notes')</h4>
         @isset($notes)
-          {!! $notes !!}
+        	{!! $notes !!}
         @endisset
       </div>
     </div>
@@ -314,7 +316,7 @@
         <div>
           <h4 class="inline-block">Xp: </h4>
           <p class="inline-block">
-            @isset($experience)
+          	@isset($experience)
               @liveAttribute('experience')
             @endisset
           </p>
@@ -510,19 +512,7 @@ _diffPtForce
 _diffPtDarkForce
 -->
 
-<script>
-	// Scrub PHP syntax during dev preview
-	const body = document.body;
-  let parsedBody = body.innerHTML;
-  // Replace attribute values
-  parsedBody = parsedBody.replace(/(\{\{|\{!!)+.*(\}\}|(!!)\})+/g, '?');
-  // Replace live attribute values
-  parsedBody = parsedBody.replace(/@liveAttribute\(.*\)/g, '?');
-  // Replace i18n values
-  parsedBody = parsedBody.replace(/@i18n\('(.*)'\)/g, '$1');
-  // Replace other php syntax
-	parsedBody = parsedBody.replace(/@+.*/g,'');
-  body.innerHTML = parsedBody;
-</script>
+<script src="data.js"></script>
+<script src="../../parser.js"></script>
 	
 </html>
