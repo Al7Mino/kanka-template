@@ -30,6 +30,10 @@
   margin-top: 0;
   display: inline-block;
 }
+.swd6-character-sheet .sub-skill {
+  font-style: italic;
+  padding-left: 1rem;
+}
 .swd6-character-sheet > .icon-box {
   display: none;
 }

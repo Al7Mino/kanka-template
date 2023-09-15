@@ -188,6 +188,14 @@
               @endisset
               </p>
             @endisset
+            @isset(${"dex_skill_" . $i . "_sub"})
+              <p class="skill sub-skill">{{ ${"dex_skill_" . $i . "_sub"} }}</p>
+              <p class="score">
+              @isset(${"dex_skill_" . $i . "_value"})
+              {{ ${"dex_skill_" . $i . "_value"} }}
+              @endisset
+              </p>
+            @endisset
             </li>
           @endfor
         </ul>
@@ -204,6 +212,14 @@
             <li>
             @isset(${"mec_skill_" . $i})
               <p class="skill">{{ ${"mec_skill_" . $i} }}</p>
+              <p class="score">
+              @isset(${"mec_skill_" . $i . "_value"})
+              {{ ${"mec_skill_" . $i . "_value"} }}
+              @endisset
+              </p>
+            @endisset
+            @isset(${"mec_skill_" . $i . "_sub"})
+              <p class="skill sub-skill">{{ ${"mec_skill_" . $i . "_sub"} }}</p>
               <p class="score">
               @isset(${"mec_skill_" . $i . "_value"})
               {{ ${"mec_skill_" . $i . "_value"} }}
@@ -232,6 +248,14 @@
               @endisset
               </p>
             @endisset
+            @isset(${"tech_skill_" . $i . "_sub"})
+              <p class="skill sub-skill">{{ ${"tech_skill_" . $i . "_sub"} }}</p>
+              <p class="score">
+              @isset(${"tech_skill_" . $i . "_value"})
+              {{ ${"tech_skill_" . $i . "_value"} }}
+              @endisset
+              </p>
+            @endisset
             </li>
           @endfor
         </ul>
@@ -246,8 +270,16 @@
         <ul class="skills-list">
           @for($i = 1; $i <= 20; $i++)
             <li>
-              @isset(${"knw_skill_" . $i})
+            @isset(${"knw_skill_" . $i})
               <p class="skill">{{ ${"knw_skill_" . $i} }}</p>
+              <p class="score">
+              @isset(${"knw_skill_" . $i . "_value"})
+              {{ ${"knw_skill_" . $i . "_value"} }}
+              @endisset
+              </p>
+            @endisset
+            @isset(${"knw_skill_" . $i . "_sub"})
+              <p class="skill sub-skill">{{ ${"knw_skill_" . $i . "_sub"} }}</p>
               <p class="score">
               @isset(${"knw_skill_" . $i . "_value"})
               {{ ${"knw_skill_" . $i . "_value"} }}
@@ -268,8 +300,16 @@
         <ul class="skills-list">
           @for($i = 1; $i <= 20; $i++)
             <li>
-              @isset(${"per_skill_" . $i})
+            @isset(${"per_skill_" . $i})
               <p class="skill">{{ ${"per_skill_" . $i} }}</p>
+              <p class="score">
+              @isset(${"per_skill_" . $i . "_value"})
+              {{ ${"per_skill_" . $i . "_value"} }}
+              @endisset
+              </p>
+            @endisset
+            @isset(${"per_skill_" . $i . "_sub"})
+              <p class="skill sub-skill">{{ ${"per_skill_" . $i . "_sub"} }}</p>
               <p class="score">
               @isset(${"per_skill_" . $i . "_value"})
               {{ ${"per_skill_" . $i . "_value"} }}
@@ -290,8 +330,16 @@
         <ul class="skills-list">
           @for($i = 1; $i <= 20; $i++)
             <li>
-              @isset(${"vig_skill_" . $i})
+            @isset(${"vig_skill_" . $i})
               <p class="skill">{{ ${"vig_skill_" . $i} }}</p>
+              <p class="score">
+              @isset(${"vig_skill_" . $i . "_value"})
+              {{ ${"vig_skill_" . $i . "_value"} }}
+              @endisset
+              </p>
+            @endisset
+            @isset(${"vig_skill_" . $i . "_sub"})
+              <p class="skill sub-skill">{{ ${"vig_skill_" . $i . "_sub"} }}</p>
               <p class="score">
               @isset(${"vig_skill_" . $i . "_value"})
               {{ ${"vig_skill_" . $i . "_value"} }}
