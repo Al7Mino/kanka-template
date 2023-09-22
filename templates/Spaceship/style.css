@@ -1,0 +1,228 @@
+.spaceship-sheet-container {
+  container-type: inline-size;
+  container-name: spaceship-sheet;
+  max-width: 1000px;
+  padding: 10px;
+}
+
+.spaceship-sheet-container p {
+  margin: 0;
+  margin-top: 0.5rem;
+}
+
+.spaceship-head {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.spaceship-head .spaceship-group-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.spaceship-head .spaceship-element {
+  width: 100%;
+}
+
+.spaceship-head .spaceship-element p, .spaceship-head .spaceship-element div {
+  border-bottom: 1px solid;
+}
+
+.spaceship-head .spaceship-element span {
+  font-size: 0.8rem;
+}
+
+/* Special style for some attribute values */
+.spaceship-attribute {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: fit-content;
+  background-color: black;
+  color: white;
+}
+
+.spaceship-attribute p {
+  position: relative;
+  margin: 0;
+  padding: 0.3rem 30px 0.3rem 0.5rem;
+}
+
+.spaceship-attribute .spaceship-group-sub-attribute > .spaceship-sub-attribute {
+  position: relative;
+  font-size: 10px;
+  padding-right: 22px;
+  margin-right: 38px;
+}
+
+.spaceship-attribute .spaceship-group-sub-attribute > .spaceship-sub-attribute:last-of-type {
+  margin-right: 0;
+}
+
+.spaceship-group-attribute > .spaceship-attribute {
+  width: 100%;
+ }
+
+.spaceship-group-attribute > .spaceship-attribute p {
+ width: 100%;
+}
+
+.spaceship-group-attribute > .spaceship-attribute-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: 1px solid;
+  padding: 0.75rem 0;
+}
+
+.spaceship-group-attribute > .spaceship-attribute-content > p {
+  margin: 0 0.5rem;
+}
+
+.spaceship-group-attribute .spaceship-attribute-infos {
+  margin-left: 1.5rem;
+}
+
+.spaceship-attribute.sub-element {
+  color: inherit;
+  background-color: inherit;
+}
+
+.spaceship-attribute.sub-element p {
+  margin-right: 0.3rem;
+  border-bottom: 1px solid;
+  padding: 0;
+  padding-right: 18px;
+}
+
+.spaceship-attribute.sub-element p .diag-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0.5rem;
+  height: 100%;
+  border-bottom: 1px solid;
+  transform: rotate(45deg);
+}
+
+.spaceship-attribute.sub-element p .square {
+  position: absolute;
+  top: calc(50% - 2px);
+  left: calc(-0.7 * 0.5rem - 6px);
+  width: 5px;
+  height: 5px;
+  border: 1px solid;
+  background-color: black;
+}
+
+/* Style specific elements */
+.spaceship-attributes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 1.5rem 0;
+}
+
+.spaceship-crew, .spaceship-engines {
+  width: 100%;
+}
+
+.spaceship-engines {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.spaceship-engines > .spaceship-attribute {
+  width: auto;
+}
+
+.spaceship-defense > .spaceship-group-attribute {
+  width: 100%;
+}
+
+.spaceship-sensors .spaceship-attribute-content {
+  flex-direction: column;
+  padding: 0.75rem 0.5rem;
+}
+
+.spaceship-sensors .spaceship-attribute-content > div {
+  width: 100%;
+}
+
+.spaceship-sensors .spaceship-attribute-content .spaceship-sensors-image {
+  max-width: 350px;
+}
+
+/* Hexagonal shape */
+.hex-container {
+  position: absolute;
+  right: -20px;
+  top: calc(50% - 20px);
+  width: 40px;
+  height: 40px;
+  background-color: black;
+  -webkit-clip-path: polygon(0% 50%, 25% 95%, 75% 95%, 100% 50%, 75% 5%, 25% 5%);
+  clip-path: polygon(0% 50%, 25% 95%, 75% 95%, 100% 50%, 75% 5%, 25% 5%);
+  z-index: 1;
+}
+.hex-container.rotate {
+  -webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+  clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+}
+.hex-container .hex-border {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 90%;
+  background-color: black;
+  -webkit-clip-path: polygon(0% 50%, 25% 95%, 75% 95%, 100% 50%, 75% 5%, 25% 5%);
+  clip-path: polygon(0% 50%, 25% 95%, 75% 95%, 100% 50%, 75% 5%, 25% 5%);
+}
+.hex-container.rotate .hex-border {
+  -webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+  clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+}
+.hex-container .hex-border .hex-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: black;
+  height: 100%;
+  font-size: initial;
+}
+
+.hex-container.hex-size-small {
+  width: 32px;
+  height: 32px;
+  right: -16px;
+  top: calc(50% - 16px);
+}
+
+.hex-container.hex-size-small .hex-content {
+  font-size: 0.8rem;
+}
+
+@container spaceship-sheet (min-width: 460px) {
+  .spaceship-head .spaceship-group-container {
+    flex-wrap: initial;
+  }
+}
+
+@container spaceship-sheet (min-width: 700px) {
+  .spaceship-attributes-container {
+    flex-direction: row;
+  }
+  .spaceship-sensors .spaceship-attribute-content {
+    flex-direction: row;
+  }
+}

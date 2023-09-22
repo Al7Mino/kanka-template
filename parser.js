@@ -55,6 +55,10 @@ const getTagStructure = (openTag, closeTag, text) => {
 const parseForLoops = (text) => {
   const loopStructures = getTagStructure('@for', '@endfor', text);
 
+  if (!loopStructures.length) {
+    return text;
+  }
+
   const firstForLoop = loopStructures[0];
   const firstForString = firstForLoop.matchString;
   const betterForString = firstForString.replace(/\s|@for|\(|\)/g, '');
@@ -102,6 +106,10 @@ const parseForLoops = (text) => {
 const parseIssets = (text) => {
   const issetStructures = getTagStructure('@isset', '@endisset', text);
 
+  if (!issetStructures.length) {
+    return text;
+  }
+
   const firstIsset = issetStructures[0];
   const attribute = firstIsset.matchContent.replace('$', '');
 
@@ -129,6 +137,10 @@ const parseIssets = (text) => {
 
 const parseIfs = (text) => {
   const ifStructures = getTagStructure('@if', '@endif', text);
+
+  if (!ifStructures.length) {
+    return text;
+  }
 
   const firstIf = ifStructures[0];
   const condition = firstIf.matchContent;
