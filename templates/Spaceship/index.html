@@ -482,116 +482,38 @@
           </div>
         </div>
         <div class="spcsh-attribute-content">
-          <div>
-            @isset($sensors_notes)
-              <p>{!! $sensors_notes !!}</p>
-            @endisset
-            @for($i = 1; $i <= 10; $i++)
-              @isset(${"sensors_" . $i . "_label"})
-                <div class="spcsh-attribute-infos">
-                  <div class="spcsh-attribute sub-element">
-                    <p>
-                      {{ ${"sensors_" . $i . "_label"} }}
-                      <span class="diag-line"></span>
-                      <span class="square"></span>
-                    </p>
-                    <div class="spch-attribute-multiple-values">
-                      @for($j = 1; $j <= 8; $j++)
-                        @isset(${"sensors_" . $i . "_value_" . $j})
-                          <div class="shape-container hex-shape size-small">
-                            <div class="shape-border">
-                              <div class="shape-content">
-                                {{ ${"sensors_" . $i . "_value_" . $j} }}
-                              </div>
+          @isset($sensors_notes)
+            <p>{!! $sensors_notes !!}</p>
+          @endisset
+          @for($i = 1; $i <= 10; $i++)
+            @isset(${"sensors_" . $i . "_label"})
+              <div class="spcsh-attribute-infos">
+                <div class="spcsh-attribute sub-element">
+                  <p>
+                    {{ ${"sensors_" . $i . "_label"} }}
+                    <span class="diag-line"></span>
+                    <span class="square"></span>
+                  </p>
+                  <div class="spch-attribute-multiple-values">
+                    @for($j = 1; $j <= 8; $j++)
+                      @isset(${"sensors_" . $i . "_value_" . $j})
+                        <div class="shape-container hex-shape size-small">
+                          <div class="shape-border">
+                            <div class="shape-content">
+                              {{ ${"sensors_" . $i . "_value_" . $j} }}
                             </div>
                           </div>
-                        @endisset
-                      @endfor
-                    </div>
+                        </div>
+                      @endisset
+                    @endfor
                   </div>
-                  @isset(${"sensors_" . $i . "_notes"})
-                    <p>{!! ${"sensors_" . $i . "_notes"} !!}</p>
-                  @endisset
                 </div>
-              @endisset
-            @endfor
-          </div>
-          <div class="spcsh-sensors-image">
-            <svg
-              id="edIK96f7tPn1"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              viewBox="0 0 300 300"
-              shape-rendering="geometricPrecision"
-              text-rendering="geometricPrecision"
-            >
-              <ellipse rx="100" ry="100" transform="translate(150 195)" fill="#d2dbed" stroke="#000"/>
-              <ellipse rx="50" ry="50" transform="translate(150 195)" fill="#bcc5d6" stroke="#000"/>
-              <path
-                d="M180.00058,15c48.995175,0,93.351981,21.266475,125.46,55.649705L180.00058,205L54.54058,70.649705C86.648586,36.266475,131.005392,15,180.00058,15Z"
-                transform="translate(-30-10)"
-                fill="#d2dbed"
-                stroke="#000"
-              />
-              <ellipse rx="5" ry="5" transform="translate(150 50.348152)" fill="#bcc5d6" stroke="#000"/>
-              <polygon
-                points="-10.085699,-30 -0.085699,-0.13 -10.085699,-5.465643 -20.085699,-0.13 -10.085699,-30"
-                transform="translate(160.085699 210.065)"
-                fill="#d2dbed"
-                stroke="#fff"
-              />
-              <text
-                dx="0"
-                dy="0"
-                font-family="&quot;Roboto&quot;"
-                font-size="11"
-                font-weight="400"
-                transform="translate(135.026955 66.060526)"
-                stroke-width="0"
-              >
-                <tspan y="0" font-weight="400" stroke-width="0"><![CDATA[Focus]]></tspan>
-                @isset($sensors_focus)
-                  <tspan x="0" dy="0.9rem" font-weight="600" stroke-width="0"><![CDATA[@liveAttribute('sensors_focus')]]></tspan>
+                @isset(${"sensors_" . $i . "_notes"})
+                  <p>{!! ${"sensors_" . $i . "_notes"} !!}</p>
                 @endisset
-              </text>
-              <text
-                dx="0"
-                dy="0"
-                font-family="&quot;Roboto&quot;"
-                font-size="11"
-                font-weight="400"
-                transform="translate(133.115486 142.321907)"
-                stroke-width="0"
-              >
-                <tspan y="0" font-weight="400" stroke-width="0"><![CDATA[Search]]></tspan>
-                <tspan x="0" dy="0.9rem" font-weight="600" stroke-width="0"><![CDATA[@liveAttribute('sensors_search')]]></tspan>
-              </text>
-              <text
-                dx="0"
-                dy="0"
-                font-family="&quot;Roboto&quot;"
-                font-size="11"
-                font-weight="400"
-                transform="translate(130.992537 220.647374)"
-                stroke-width="0"
-              >
-                <tspan y="0" font-weight="400" stroke-width="0"><![CDATA[Passive]]></tspan>
-                <tspan x="0" dy="0.9rem" font-weight="600" stroke-width="0"><![CDATA[@liveAttribute('sensors_passive')]]></tspan>
-              </text>
-              <text
-                dx="0"
-                dy="0"
-                font-family="&quot;Roboto&quot;"
-                font-size="11"
-                font-weight="400"
-                transform="translate(137.835598 265.712374)"
-                stroke-width="0"
-              >
-                <tspan y="0" font-weight="400" stroke-width="0"><![CDATA[Scan]]></tspan>
-                <tspan x="-5" dy="0.9rem" font-weight="600" stroke-width="0"><![CDATA[@liveAttribute('sensors_scan')]]></tspan>
-              </text>
-            </svg>
-          </div>
+              </div>
+            @endisset
+          @endfor
         </div>
       </div>
     </div>
@@ -792,10 +714,18 @@ hull_notes
 
 -- SENSORS --
 sensors_notes
-sensors_focus
-sensors_scan
-sensors_passive
-sensors_search
+sensors_1_label
+sensors_1_value_1
+sensors_1_value_2
+sensors_2_label
+sensors_2_value_1
+sensors_2_value_2
+sensors_3_label
+sensors_3_value_1
+sensors_3_value_2
+sensors_4_label
+sensors_4_value_1
+sensors_4_value_2
 
 -- WEAPONS --
 weapon_1_name
@@ -815,6 +745,84 @@ weapon_1_sub_2_value_3
 weapon_1_sub_2_value_4
 weapon_1_sub_2_notes
 -->
+
+<!-- SVG not supported in Kanka template -->
+<!-- <div class="spcsh-sensors-image">
+  <svg
+    id="edIK96f7tPn1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 300 300"
+    shape-rendering="geometricPrecision"
+    text-rendering="geometricPrecision"
+  >
+    <ellipse rx="100" ry="100" transform="translate(150 195)" fill="#d2dbed" stroke="#000"/>
+    <ellipse rx="50" ry="50" transform="translate(150 195)" fill="#bcc5d6" stroke="#000"/>
+    <path
+      d="M180.00058,15c48.995175,0,93.351981,21.266475,125.46,55.649705L180.00058,205L54.54058,70.649705C86.648586,36.266475,131.005392,15,180.00058,15Z"
+      transform="translate(-30-10)"
+      fill="#d2dbed"
+      stroke="#000"
+    />
+    <ellipse rx="5" ry="5" transform="translate(150 50.348152)" fill="#bcc5d6" stroke="#000"/>
+    <polygon
+      points="-10.085699,-30 -0.085699,-0.13 -10.085699,-5.465643 -20.085699,-0.13 -10.085699,-30"
+      transform="translate(160.085699 210.065)"
+      fill="#d2dbed"
+      stroke="#fff"
+    />
+    <text
+      dx="0"
+      dy="0"
+      font-family="&quot;Roboto&quot;"
+      font-size="11"
+      font-weight="400"
+      transform="translate(135.026955 66.060526)"
+      stroke-width="0"
+    >
+      <tspan y="0" font-weight="400" stroke-width="0"><![CDATA[Focus]]></tspan>
+      @isset($sensors_focus)
+        <tspan x="0" dy="0.9rem" font-weight="600" stroke-width="0"><![CDATA[@liveAttribute('sensors_focus')]]></tspan>
+      @endisset
+    </text>
+    <text
+      dx="0"
+      dy="0"
+      font-family="&quot;Roboto&quot;"
+      font-size="11"
+      font-weight="400"
+      transform="translate(133.115486 142.321907)"
+      stroke-width="0"
+    >
+      <tspan y="0" font-weight="400" stroke-width="0"><![CDATA[Search]]></tspan>
+      <tspan x="0" dy="0.9rem" font-weight="600" stroke-width="0"><![CDATA[@liveAttribute('sensors_search')]]></tspan>
+    </text>
+    <text
+      dx="0"
+      dy="0"
+      font-family="&quot;Roboto&quot;"
+      font-size="11"
+      font-weight="400"
+      transform="translate(130.992537 220.647374)"
+      stroke-width="0"
+    >
+      <tspan y="0" font-weight="400" stroke-width="0"><![CDATA[Passive]]></tspan>
+      <tspan x="0" dy="0.9rem" font-weight="600" stroke-width="0"><![CDATA[@liveAttribute('sensors_passive')]]></tspan>
+    </text>
+    <text
+      dx="0"
+      dy="0"
+      font-family="&quot;Roboto&quot;"
+      font-size="11"
+      font-weight="400"
+      transform="translate(137.835598 265.712374)"
+      stroke-width="0"
+    >
+      <tspan y="0" font-weight="400" stroke-width="0"><![CDATA[Scan]]></tspan>
+      <tspan x="-5" dy="0.9rem" font-weight="600" stroke-width="0"><![CDATA[@liveAttribute('sensors_scan')]]></tspan>
+    </text>
+  </svg>
+</div> -->
 
 <script src="data.js"></script>
 <script src="../../parser.js"></script>

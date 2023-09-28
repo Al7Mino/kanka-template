@@ -190,19 +190,6 @@
   margin: 1.5rem 0;
 }
 
-.spcsh-sensors .spcsh-attribute-content {
-  flex-direction: column;
-  padding: 0.75rem 0.5rem;
-}
-
-.spcsh-sensors .spcsh-attribute-content > div {
-  width: 100%;
-}
-
-.spcsh-sensors .spcsh-attribute-content .spcsh-sensors-image {
-  max-width: 350px;
-}
-
 .spcsh-weapons {
   margin: 1.5rem 0;
 }
@@ -435,9 +422,6 @@
 
 @container spcsh-sheet (min-width: 700px) {
   .spcsh-attributes-container {
-    flex-direction: row;
-  }
-  .spcsh-sensors .spcsh-attribute-content {
     flex-direction: row;
   }
 }
