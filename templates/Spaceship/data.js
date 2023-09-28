@@ -19,6 +19,7 @@ const defaultData = {
   speed_atmosphere: 480,
   maneuverability: '2D',
   hyperdrive: 'x2',
+  hyperdrive_notes: 'Hyperdrive allow spaceship to navigate through hyperspace.',
   hyperdrive_1_label: 'Hyperdrive Backup',
   hyperdrive_1_value_1: 'x12',
   shields: '2D',

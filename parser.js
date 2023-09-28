@@ -318,5 +318,5 @@ parsedBody = parsedBody.replace(/@+.*/g,'');
 // Clear parsed body by deleting some useless whitespace and line breaks
 parsedBody = parsedBody.replace(/^\s*[\r\n]/gm, '');
 // Clear parsed body by deleting whitespace and line breaks remaining between empty html tag
-parsedBody = parsedBody.replace(/(?<=<(\S*)\s?.*?>)(\s|[\r\n])*(?=<\/\1>)/gm, '');
+// parsedBody = parsedBody.replace(/(?<=<(\S*)\s?.*?>)(\s|[\r\n])*(?=<\/\1>)/gm, '');
 body.innerHTML = parsedBody;

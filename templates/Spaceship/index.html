@@ -7,7 +7,8 @@
 	<meta name="author" content="Al7Mino">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="../../main.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rpg-awesome/0.2.0/css/rpg-awesome.min.css" integrity="sha512-01mG/8rtthZxcE/oLY/1aVBq0UHYxd3r9MgSi33zFQ190gj+BfHY8XeoFiErGyVt1pE68U6InjMq+xkVTSf6yg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../../main.css">
   <link rel="stylesheet" href="./style.css">
 </head>
 
@@ -72,6 +73,7 @@
         <div class="spcsh-attribute">
           <div class="spcsh-attribute-group full-width">
             <p>
+              <i class="fa-solid fa-people-group"></i>
               @i18n('CREW')
             </p>
             @isset($_totalCrew)
@@ -186,8 +188,8 @@
             </div>
             <div class="spcsh-group-sub-attribute">
               @isset($speed_space)
-                <span class="spcsh-sub-attribute">
-                  @i18n('Space')
+                <div class="spcsh-sub-attribute">
+                  <span>@i18n('Space')</span>
                   <div class="shape-container hex-shape">
                     <div class="shape-border">
                       <div class="shape-content">
@@ -195,11 +197,11 @@
                       </div>
                     </div>
                   </div>
-                </span>
+                </div>
               @endisset
               @isset($speed_atmosphere)
-                <span class="spcsh-sub-attribute">
-                  Atmosphere
+                <div class="spcsh-sub-attribute">
+                  <span>@i18n('Atmosphere')</span>
                   <div class="shape-container hex-shape">
                     <div class="shape-border">
                       <div class="shape-content">
@@ -207,7 +209,7 @@
                       </div>
                     </div>
                   </div>
-                </span>
+                </div>
               @endisset
             </div>
           </div>
@@ -357,6 +359,7 @@
         <div class="spcsh-attribute">
           <div class="spcsh-attribute-group full-width">
             <p>
+              <i class="fa-regular fa-shield"></i>
               @i18n('SHIELDS')
             </p>
             @isset($shields)
@@ -409,6 +412,7 @@
         <div class="spcsh-attribute">
           <div class="spcsh-attribute-group full-width">
             <p>
+              <i class="ra ra-gear-heart"></i>
               @i18n('HULL')
             </p>
             @isset($hull)
@@ -463,6 +467,7 @@
         <div class="spcsh-attribute">
           <div class="spcsh-attribute-group full-width">
             <p>
+              <i class="fa-solid fa-radar"></i>
               @i18n('SENSORS')
             </p>
             @isset($sensors)
