@@ -598,18 +598,42 @@
               <div class="shape-container oct-shape">
                 <div class="shape-border">
                   <div class="shape-content">
-                    <div class="spcsh-front">
-                      <p>FRONT</p>
-                    </div>
-                    <div class="spcsh-right">
-                      <p>RIGHT</p>
-                    </div>
-                    <div class="spcsh-left">
-                      <p>LEFT</p>
-                    </div>
-                    <div class="spcsh-back">
-                      <p>AFT</p>
-                    </div>
+                    @if(${"weapon_" . $i . "_fireArc"} === 'front' || ${"weapon_" . $i . "_fireArc"} === 'turret')
+                      <div class="spcsh-front spcsh-available">
+                        <p>FRONT</p>
+                      </div>
+                    @else
+                      <div class="spcsh-front">
+                        <p>FRONT</p>
+                      </div>
+                    @endif
+                    @if(${"weapon_" . $i . "_fireArc"} === 'right' || ${"weapon_" . $i . "_fireArc"} === 'turret')
+                      <div class="spcsh-right spcsh-available">
+                        <p>RIGHT</p>
+                      </div>
+                    @else
+                      <div class="spcsh-right">
+                        <p>RIGHT</p>
+                      </div>
+                    @endif
+                    @if(${"weapon_" . $i . "_fireArc"} === 'left' || ${"weapon_" . $i . "_fireArc"} === 'turret')
+                      <div class="spcsh-left spcsh-available">
+                        <p>LEFT</p>
+                      </div>
+                    @else
+                      <div class="spcsh-left">
+                        <p>LEFT</p>
+                      </div>
+                    @endif
+                    @if(${"weapon_" . $i . "_fireArc"} === 'back' || ${"weapon_" . $i . "_fireArc"} === 'turret')
+                      <div class="spcsh-back spcsh-available">
+                        <p>AFT</p>
+                      </div>
+                    @else
+                      <div class="spcsh-back">
+                        <p>AFT</p>
+                      </div>
+                    @endif
                   </div>
                 </div>
               </div>
@@ -772,6 +796,7 @@ sensors_search
 weapon_1_name
 weapon_1_type
 weapon_1_fireLinked
+weapon_1_fireArc
 weapon_1_notes
 weapon_1_fireControl
 weapon_1_damage

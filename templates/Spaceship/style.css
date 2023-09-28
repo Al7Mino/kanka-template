@@ -238,6 +238,11 @@
   border-bottom: 1px solid;
 }
 
+.spcsh-weapon .spcsh-weapon-type .oct-shape .shape-content > div.spcsh-available {
+  background-color: darkgreen;
+  color: white;
+}
+
 .spcsh-weapon .spcsh-weapon-type .oct-shape .shape-content > div > p {
   display: flex;
   align-items: center;
