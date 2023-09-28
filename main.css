@@ -71,13 +71,17 @@
   /* Button border width */
   /* --border-btn: 1px; */
   /* Button text transform */
-  /* --btn-text-case: uppercase; */
+  --btn-text-case: uppercase;
 
   /* Border radius for tabs */
   --tab-radius: .25rem;
 
   /* Border thickness for tabs */
   --tab-border: 0px;
+
+  --tw-bg-opacity: 1;
+  --tw-text-opacity: 1;
+  --tw-border-opacity: 0.2;
 }
 
 html {
