@@ -247,6 +247,11 @@ const parseIfs = (text) => {
     if (defaultData[variable] && defaultData[variable] < value) {
       result += content;
     }
+  } else {
+    const variable = condition.replace(/\$|\s/g, '');
+    if (defaultData[variable]) {
+      result += content;
+    }
   }
   result += endString;
 
