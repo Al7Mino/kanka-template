@@ -3,7 +3,88 @@
  * If there's default data, they should be loaded in template before calling parser and should define a `defaultData` object.
  */
 
-const getTagStructure = (openTag, closeTag, text) => {
+const getFirstLoopStructure = (tags, endTags) => {
+  if (!tags.length) {
+    return undefined;
+  }
+
+  const endIndex = endTags[0].index;
+  if (tags.length === 1) {
+    return {
+      begin: tags[0].index,
+      end: endIndex,
+      matchString: tags[0][0],
+      matchContent: tags[0][1],
+    };
+  }
+
+  for (let i = 1; i < tags.length; i++) {
+    const currentIndex = tags[i].index;
+    if (currentIndex > endIndex) {
+      const previousIndex = i - 1;
+      const previousTag = tags[previousIndex];
+      return {
+        begin: previousTag.index,
+        end: endIndex,
+        matchString: previousTag[0],
+        matchContent: previousTag[1],
+      };
+    }
+  }
+
+  const lastTag = tags[tags.length - 1];
+  return {
+    begin: lastTag.index,
+    end: endIndex,
+    matchString: lastTag[0],
+    matchContent: lastTag[1],
+  };
+}
+
+const getFirstConditionalStructure = (tags, endTags) => {
+  if (!tags.length) {
+    return undefined;
+  }
+
+  const beginIndex = tags[0].index;
+  if (tags.length === 1) {
+    return {
+      begin: beginIndex,
+      end: endTags[0].index,
+      matchString: tags[0][0],
+      matchContent: tags[0][1],
+    };
+  }
+
+  let currentEndIndex = 0;
+  let currentEndTag = endTags[0];
+  for (let i = 1; i < tags.length; i++) {
+    const nextTagIndex = tags[i].index;
+    if (nextTagIndex > currentEndTag.index) {
+      const deep = i - 1;
+      currentEndIndex = deep;
+      currentEndTag = endTags[currentEndIndex];
+      if (deep === 0 || nextTagIndex > currentEndTag.index) {
+        return {
+          begin: beginIndex,
+          end: currentEndTag.index,
+          matchString: tags[0][0],
+          matchContent: tags[0][1],
+        };
+      }
+    }
+  }
+
+  const lastEndTag = endTags[endTags.length - 1];
+  return {
+    begin: beginIndex,
+    end: lastEndTag.index,
+    matchString: tags[0][0],
+    matchContent: tags[0][1],
+  };
+}
+
+const getFirstTagStructure = (openTag, closeTag, text, imbricatedFirst = true) => {
   const openRegexp = new RegExp(`${openTag}\\((.*)\\)`, 'g');
   const closeRegexp = new RegExp(closeTag, 'g');
   const tags = [...text.matchAll(openRegexp)];
@@ -13,38 +94,7 @@ const getTagStructure = (openTag, closeTag, text) => {
     throw new Error(`Each \`${openTag}\` should be closed by \`${closeTag}\`.`);
   }
 
-  const tagStructures = [];
-  const indexes = [...tags.keys()];
-  for (let i = 0; i < endTags.length; i++) {
-    const endIndex = endTags[i].index;
-    const minIndex = indexes.length ? Math.min(...indexes) : 0;
-    const firstTagIndex = tags[minIndex].index;
-    if (i + 1 === endTags.length) {
-      tagStructures.push({
-        begin: firstTagIndex,
-        end: endIndex,
-        matchString: tags[minIndex][0],
-        matchContent: tags[minIndex][1],
-      });
-    }
-    for (let j = 0; j < indexes.length; j++) {
-      const currentIndex = tags[indexes[j]].index;
-      if (currentIndex > endIndex) {
-        const previousIndex = j - 1 >= 0 ? indexes[j - 1] : indexes[0];
-        const previousTag = tags[previousIndex];
-        tagStructures.push({
-          begin: previousTag.index,
-          end: endIndex,
-          matchString: previousTag[0],
-          matchContent: previousTag[1],
-        });
-        indexes.splice(j - 1, 1);
-        break;
-      }
-    }
-  }
-
-  return tagStructures;
+  return imbricatedFirst ? getFirstLoopStructure(tags, endTags) : getFirstConditionalStructure(tags, endTags);
 }
 
 /**
@@ -53,13 +103,12 @@ const getTagStructure = (openTag, closeTag, text) => {
  * @returns Text with for loops applied
  */
 const parseForLoops = (text) => {
-  const loopStructures = getTagStructure('@for', '@endfor', text);
+  const firstForLoop = getFirstTagStructure('@for', '@endfor', text);
 
-  if (!loopStructures.length) {
+  if (!firstForLoop) {
     return text;
   }
 
-  const firstForLoop = loopStructures[0];
   const firstForString = firstForLoop.matchString;
   const betterForString = firstForString.replace(/\s|@for|\(|\)/g, '');
   const splittedString = betterForString.split(';');
@@ -104,17 +153,15 @@ const parseForLoops = (text) => {
 };
 
 const parseIssets = (text) => {
-  const issetStructures = getTagStructure('@isset', '@endisset', text);
+  const firstIsset = getFirstTagStructure('@isset', '@endisset', text, false);
 
-  if (!issetStructures.length) {
+  if (!firstIsset) {
     return text;
   }
 
-  const firstIsset = issetStructures[0];
   const attribute = firstIsset.matchContent.replace('$', '');
 
-  let content = text.slice(firstIsset.begin, firstIsset.end);
-  content = content.replace(/@isset\(.*\)/g, '');
+  let content = text.slice(firstIsset.begin + firstIsset.matchString.length, firstIsset.end);
 
   let result = text;
 
@@ -136,13 +183,12 @@ const parseIssets = (text) => {
 }
 
 const parseIfs = (text) => {
-  const ifStructures = getTagStructure('@if', '@endif', text);
+  const firstIf = getFirstTagStructure('@if', '@endif', text, false);
 
-  if (!ifStructures.length) {
+  if (!firstIf) {
     return text;
   }
 
-  const firstIf = ifStructures[0];
   const condition = firstIf.matchContent;
   const conditionIsEqual = condition.includes('==');
   const conditionIsStrictEqual = condition.includes('===');
@@ -151,8 +197,7 @@ const parseIfs = (text) => {
   const conditionIsLower = condition.includes('<');
   const conditionIsLowerOrEqual = condition.includes('<=');
 
-  let content = text.slice(firstIf.begin, firstIf.end);
-  content = content.replace(/@if\(.*\)/g, '');
+  let content = text.slice(firstIf.begin + firstIf.matchString.length, firstIf.end);
 
   let result = text;
 

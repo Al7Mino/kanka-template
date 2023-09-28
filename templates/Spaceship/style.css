@@ -89,6 +89,11 @@
   padding: 0.75rem 0;
 }
 
+.spcsh-group-attribute > .spcsh-attribute-content:empty {
+  border: none;
+  padding: 0;
+}
+
 .spcsh-group-attribute > .spcsh-attribute-content > p {
   margin: 0 0.5rem;
 }
