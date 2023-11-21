@@ -122,6 +122,7 @@
 .spcsh-attribute.sub-element p {
   margin-right: 0.3rem;
   border-bottom: 1px solid;
+  border-color: hsl(var(--bc)/var(--tw-border-opacity));
   padding: 0;
   padding-right: 18px;
 }
@@ -129,10 +130,11 @@
 .spcsh-attribute.sub-element p .diag-line {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 0.5rem;
+  left: -1px;
+  width: 0.6rem;
   height: 100%;
   border-bottom: 1px solid;
+  border-color: hsl(var(--bc)/var(--tw-border-opacity));
   transform: rotate(45deg);
 }
 
@@ -158,6 +160,40 @@
   position: relative;
   right: 0;
   top: 0;
+}
+
+.spch-attribute-multiple-values .shape-underlined {
+  position: absolute;
+  top: 1.6rem;
+  height: 1px;
+  width: 1rem;
+  background-color: hsl(var(--bc)/var(--tw-border-opacity));
+}
+
+.spch-attribute-multiple-values .shape-underlined:nth-of-type(1) {
+  left: 0;
+  width: 0;
+}
+.spch-attribute-multiple-values .shape-underlined:nth-of-type(2) {
+  left: 26px;
+}
+.spch-attribute-multiple-values .shape-underlined:nth-of-type(3) {
+  left: calc(26px + 37px);
+}
+.spch-attribute-multiple-values .shape-underlined:nth-of-type(4) {
+  left: calc(26px + (2 * 37px));
+}
+.spch-attribute-multiple-values .shape-underlined:nth-of-type(5) {
+  left: calc(26px + (3 * 37px));
+}
+.spch-attribute-multiple-values .shape-underlined:nth-of-type(6) {
+  left: calc(26px + (4 * 37px));
+}
+.spch-attribute-multiple-values .shape-underlined:nth-of-type(7) {
+  left: calc(26px + (5 * 37px));
+}
+.spch-attribute-multiple-values .shape-underlined:nth-of-type(8) {
+  left: calc(26px + (6 * 37px));
 }
 
 /* Style specific elements */
@@ -219,13 +255,13 @@
 .spcsh-weapon .spcsh-weapon-type .oct-shape {
   width: 100px;
   height: 100px;
-  background-color: hsl(var(--bc)/var(--tw-border-opacity))
+  background-color: hsl(var(--b3)/var(--tw-bg-opacity));
 }
 
 .spcsh-weapon .spcsh-weapon-type .oct-shape .shape-border {
   width: 96%;
   height: 96%;
-  background-color: hsl(var(--bc)/var(--tw-border-opacity))
+  background-color: hsl(var(--b3)/var(--tw-bg-opacity));
 }
 
 .spcsh-weapon .spcsh-weapon-type .oct-shape .shape-content {
@@ -412,6 +448,28 @@
 .oct-shape .shape-border {
   -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
   clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+
+/* Override some Kanka styles */
+.spcsh-sheet-container .live-edit {
+  min-width: 0;
+  min-height: 0;
+}
+
+.spcsh-sheet-container .shape-container .live-edit-parsed:hover {
+  --tw-text-opacity: 1;
+  color: var(--link-text, hsl(var(--p)/var(--tw-text-opacity)));
+}
+
+.spcsh-sheet-container .shape-container .live-edit-parsed:hover::after {
+  display: none;
+}
+
+@layer theme {
+  .spcsh-sheet-container .shape-container .live-edit-parsed:hover {
+    --p: var(--mauve, 202 52% 49%);
+    --pf: var(--pink, 202 52% 34%);
+  }
 }
 
 @container spcsh-sheet (min-width: 460px) {
