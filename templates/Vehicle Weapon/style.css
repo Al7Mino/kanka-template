@@ -1,43 +1,17 @@
-.spcsh-sheet-container {
+.vw-sheet-container {
   container-type: inline-size;
-  container-name: spcsh-sheet;
+  container-name: vw-sheet;
   max-width: 1000px;
   padding: 10px;
 }
 
-.spcsh-sheet-container p {
+.vw-sheet-container p {
   margin: 0;
   margin-top: 0.5rem;
 }
 
-.spcsh-head {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.spcsh-head .spcsh-group-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.spcsh-head .spcsh-element {
-  width: 100%;
-}
-
-.spcsh-head .spcsh-element p, .spcsh-head .spcsh-element div {
-  border-bottom: 1px solid;
-}
-
-.spcsh-head .spcsh-element span {
-  font-size: 0.8rem;
-}
-
 /* Special style for some attribute values */
-.spcsh-attribute {
+.vw-attribute {
   position: relative;
   display: flex;
   align-items: center;
@@ -47,45 +21,26 @@
   color: hsl(var(--bc)/var(--tw-text-opacity));
 }
 
-.spcsh-attribute .spcsh-attribute-group {
+.vw-attribute .vw-attribute-group {
   position: relative;
 }
 
-.spcsh-attribute .spcsh-attribute-group.full-width {
-  width: 100%;
-}
-
-.spcsh-attribute p {
+.vw-attribute p {
   position: relative;
   margin: 0;
   padding: 0.3rem 30px 0.3rem 0.5rem;
 }
 
-.spcsh-attribute .spcsh-group-sub-attribute {
-  display: flex;
-}
-
-.spcsh-attribute .spcsh-group-sub-attribute > .spcsh-sub-attribute {
-  position: relative;
-  font-size: 10px;
-  padding-right: 22px;
-  margin-right: 38px;
-}
-
-.spcsh-attribute .spcsh-group-sub-attribute > .spcsh-sub-attribute:last-of-type {
-  margin-right: 0;
-}
-
-.spcsh-group-attribute > .spcsh-attribute {
+.vw-group-attribute > .vw-attribute {
   width: 100%;
   min-height: 1.6rem;
  }
 
-.spcsh-group-attribute > .spcsh-attribute p {
+.vw-group-attribute > .vw-attribute p {
  width: 100%;
 }
 
-.spcsh-group-attribute > .spcsh-attribute-content {
+.vw-group-attribute > .vw-attribute-content {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -94,32 +49,32 @@
   border-color: hsl(var(--bc)/var(--tw-border-opacity));
 }
 
-.spcsh-group-attribute > .spcsh-attribute-content > p {
+.vw-group-attribute > .vw-attribute-content > p {
   margin: 0 0.5rem;
 }
-.spcsh-group-attribute > .spcsh-attribute-content > p:first-child {
+.vw-group-attribute > .vw-attribute-content > p:first-child {
   padding-top: 0.75rem;
 }
-.spcsh-group-attribute > .spcsh-attribute-content > p:last-child {
+.vw-group-attribute > .vw-attribute-content > p:last-child {
   padding-bottom: 0.75rem;
 }
 
-.spcsh-group-attribute .spcsh-attribute-infos {
+.vw-group-attribute .vw-attribute-infos {
   margin-left: 1.5rem;
 }
-.spcsh-group-attribute .spcsh-attribute-infos:first-child {
+.vw-group-attribute .vw-attribute-infos:first-child {
   padding-top: 0.75rem;
 }
-.spcsh-group-attribute .spcsh-attribute-infos:last-child {
+.vw-group-attribute .vw-attribute-infos:last-child {
   padding-bottom: 0.75rem;
 }
 
-.spcsh-attribute.sub-element {
+.vw-attribute.sub-element {
   color: inherit;
   background-color: inherit;
 }
 
-.spcsh-attribute.sub-element p {
+.vw-attribute.sub-element p {
   margin-right: 0.3rem;
   border-bottom: 1px solid;
   border-color: hsl(var(--bc)/var(--tw-border-opacity));
@@ -127,7 +82,7 @@
   padding-right: 18px;
 }
 
-.spcsh-attribute.sub-element p .diag-line {
+.vw-attribute.sub-element p .diag-line {
   position: absolute;
   top: 0;
   left: -1px;
@@ -138,7 +93,7 @@
   transform: rotate(45deg);
 }
 
-.spcsh-attribute.sub-element p .square {
+.vw-attribute.sub-element p .square {
   position: absolute;
   top: calc(50% - 1px);
   left: calc(-0.7 * 0.5rem - 4px);
@@ -148,7 +103,7 @@
   background-color: hsl(var(--bc)/var(--tw-text-opacity));
 }
 
-.spch-attribute-multiple-values {
+.vw-attribute-multiple-values {
   position: relative;
   top: calc(50% - 16px);
   left: -16px;
@@ -156,13 +111,13 @@
   gap: 0.3rem;
 }
 
-.spch-attribute-multiple-values .shape-container.hex-shape {
+.vw-attribute-multiple-values .shape-container.hex-shape {
   position: relative;
   right: 0;
   top: 0;
 }
 
-.spch-attribute-multiple-values .shape-underlined {
+.vw-attribute-multiple-values .shape-underlined {
   position: absolute;
   top: 1.6rem;
   height: 1px;
@@ -170,131 +125,99 @@
   background-color: hsl(var(--bc)/var(--tw-border-opacity));
 }
 
-.spch-attribute-multiple-values .shape-underlined:nth-of-type(1) {
+.vw-attribute-multiple-values .shape-underlined:nth-of-type(1) {
   left: 0;
   width: 0;
 }
-.spch-attribute-multiple-values .shape-underlined:nth-of-type(2) {
+.vw-attribute-multiple-values .shape-underlined:nth-of-type(2) {
   left: 26px;
 }
-.spch-attribute-multiple-values .shape-underlined:nth-of-type(3) {
+.vw-attribute-multiple-values .shape-underlined:nth-of-type(3) {
   left: calc(26px + 37px);
 }
-.spch-attribute-multiple-values .shape-underlined:nth-of-type(4) {
+.vw-attribute-multiple-values .shape-underlined:nth-of-type(4) {
   left: calc(26px + (2 * 37px));
 }
-.spch-attribute-multiple-values .shape-underlined:nth-of-type(5) {
+.vw-attribute-multiple-values .shape-underlined:nth-of-type(5) {
   left: calc(26px + (3 * 37px));
 }
-.spch-attribute-multiple-values .shape-underlined:nth-of-type(6) {
+.vw-attribute-multiple-values .shape-underlined:nth-of-type(6) {
   left: calc(26px + (4 * 37px));
 }
-.spch-attribute-multiple-values .shape-underlined:nth-of-type(7) {
+.vw-attribute-multiple-values .shape-underlined:nth-of-type(7) {
   left: calc(26px + (5 * 37px));
 }
-.spch-attribute-multiple-values .shape-underlined:nth-of-type(8) {
+.vw-attribute-multiple-values .shape-underlined:nth-of-type(8) {
   left: calc(26px + (6 * 37px));
 }
 
 /* Style specific elements */
-.spcsh-attributes-container {
+.vw-weapon {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  margin: 1.5rem 0;
-}
-
-.spcsh-crew, .spcsh-engines {
-  width: 100%;
-}
-
-.spcsh-engines {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.spcsh-engines > .spcsh-attribute {
-  width: auto;
-}
-
-.spcsh-defense > .spcsh-group-attribute {
-  width: 100%;
-}
-
-.spcsh-sensors {
-  margin: 1.5rem 0;
-}
-
-.spcsh-weapons {
-  margin: 1.5rem 0;
-}
-
-.spcsh-weapon {
-  display: flex;
   border-bottom: 1px solid;
   border-left: 1px solid;
+  border-right: 1px solid;
   border-color: hsl(var(--bc)/var(--tw-border-opacity));
 }
 
-.spcsh-weapon .triangle {
+.vw-weapon .triangle {
   position: absolute;
   top: 0;
   left: calc(100% - 16px);
-  width: 29px;
-  height: 40px;
+  width: 16px;
+  height: 44px;
   background-color: hsl(var(--b3)/var(--tw-bg-opacity));
-  clip-path: polygon(0 0, 100% 29px, 100% 100%, 0 100%);
 }
 
-.spcsh-weapon .spcsh-weapon-type {
+.vw-weapon .vw-weapon-type {
   position: relative;
-  width: 50%;
+  width: 100%;
 }
 
-.spcsh-weapon .spcsh-weapon-type .oct-shape {
+.vw-weapon .vw-weapon-type .oct-shape {
   width: 100px;
   height: 100px;
   background-color: hsl(var(--b3)/var(--tw-bg-opacity));
 }
 
-.spcsh-weapon .spcsh-weapon-type .oct-shape .shape-border {
+.vw-weapon .vw-weapon-type .oct-shape .shape-border {
   width: 96%;
   height: 96%;
   background-color: hsl(var(--b3)/var(--tw-bg-opacity));
 }
 
-.spcsh-weapon .spcsh-weapon-type .oct-shape .shape-content {
+.vw-weapon .vw-weapon-type .oct-shape .shape-content {
   flex-wrap: wrap;
   transform: rotate(45deg);
   background-color: hsl(var(--b1)/var(--tw-bg-opacity));
   color: hsl(var(--bc)/var(--tw-text-opacity));
 }
 
-.spcsh-weapon .spcsh-weapon-type .oct-shape .shape-content > div {
+.vw-weapon .vw-weapon-type .oct-shape .shape-content > div {
   width: 50%;
   height: 50%;
 }
-.spcsh-weapon .spcsh-weapon-type .oct-shape .shape-content > .spcsh-front {
+.vw-weapon .vw-weapon-type .oct-shape .shape-content > .vw-front {
   border-bottom: 1px solid;
   border-color: hsl(var(--bc)/var(--tw-border-opacity));
 }
-.spcsh-weapon .spcsh-weapon-type .oct-shape .shape-content > .spcsh-right {
+.vw-weapon .vw-weapon-type .oct-shape .shape-content > .vw-right {
   border-left: 1px solid;
   border-bottom: 1px solid;
   border-color: hsl(var(--bc)/var(--tw-border-opacity));
 }
-.spcsh-weapon .spcsh-weapon-type .oct-shape .shape-content > .spcsh-back {
+.vw-weapon .vw-weapon-type .oct-shape .shape-content > .vw-back {
   border-left: 1px solid;
   border-color: hsl(var(--bc)/var(--tw-border-opacity));
 }
 
-.spcsh-weapon .spcsh-weapon-type .oct-shape .shape-content > div.spcsh-available {
+.vw-weapon .vw-weapon-type .oct-shape .shape-content > div.vw-available {
   background-color: darkgreen;
   color: white;
 }
 
-.spcsh-weapon .spcsh-weapon-type .oct-shape .shape-content > div > p {
+.vw-weapon .vw-weapon-type .oct-shape .shape-content > div > p {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -305,29 +228,29 @@
   transform: rotate(-45deg);
 }
 
-.spcsh-weapon .oct-shape .shape-content > .spcsh-right > p, .spcsh-weapon .oct-shape .shape-content > .spcsh-left > p {
+.vw-weapon .oct-shape .shape-content > .vw-right > p, .vw-weapon .oct-shape .shape-content > .vw-left > p {
   writing-mode: vertical-lr;
 }
 
-.spcsh-weapon .spcsh-weapon-type .oct-shape .shape-content > .spcsh-right > p {
+.vw-weapon .vw-weapon-type .oct-shape .shape-content > .vw-right > p {
   transform: rotate(135deg);
 }
 
-.spcsh-weapon .spcsh-weapon-type > .spcsh-attribute {
+.vw-weapon .vw-weapon-type > .vw-attribute {
   clip-path: polygon(calc(100% - 15px) 0, 0 0, 0 100%, calc(100% - 15px) 100%);
 }
 
-.spcsh-weapon .spcsh-weapon-type > .spcsh-attribute-content {
+.vw-weapon .vw-weapon-type > .vw-attribute-content {
   border: none;
   gap: 0;
   padding-top: 0.5rem;
 }
 
-.spcsh-weapon .spcsh-weapon-type > .spcsh-attribute-content span {
+.vw-weapon .vw-weapon-type > .vw-attribute-content span {
   font-size: 11px;
 }
 
-.spcsh-weapon .spcsh-weapon-type > .spcsh-attribute-content .spcsh-type {
+.vw-weapon .vw-weapon-type > .vw-attribute-content .vw-type {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -337,32 +260,32 @@
   padding-right: 90px;
 }
 
-.spcsh-weapon .spcsh-weapon-type > .spcsh-attribute-content .spcsh-type > p {
+.vw-weapon .vw-weapon-type > .vw-attribute-content .vw-type > p {
   display: flex;
   align-items: center;
   height: 100%;
   margin: 0 0.5rem;
 }
 
-.spcsh-weapon .spcsh-weapon-type > .spcsh-attribute-content .spcsh-type > div {
+.vw-weapon .vw-weapon-type > .vw-attribute-content .vw-type > div {
   display: flex;
   justify-content: space-between;
 }
 
-.spcsh-weapon .spcsh-weapon-type > .spcsh-attribute-content .spcsh-note > p {
+.vw-weapon .vw-weapon-type > .vw-attribute-content .vw-note > p {
   margin: 0.5rem 0.5rem 0 0.5rem;
 }
 
-.spcsh-weapon .spcsh-weapon-info {
+.vw-weapon .vw-weapon-info {
   width: 100%;
   margin-top: 1.75rem;
 }
 
-.spcsh-weapon .spcsh-weapon-info > .spcsh-attribute {
+.vw-weapon .vw-weapon-info > .vw-attribute {
   padding-left: 15px;
 }
 
-.spcsh-weapon .spcsh-weapon-info > .spcsh-attribute-content {
+.vw-weapon .vw-weapon-info > .vw-attribute-content {
   border: none;
   border-left: 1px solid;
   border-right: 1px solid;
@@ -370,7 +293,7 @@
   min-height: calc(100% - 1.8rem);
 }
 
-.spcsh-weapon .spcsh-weapon-info > .spcsh-attribute-content > p {
+.vw-weapon .vw-weapon-info > .vw-attribute-content > p {
   padding-left: 15px;
 }
 
@@ -451,35 +374,44 @@
 }
 
 /* Override some Kanka styles */
-.spcsh-sheet-container .live-edit {
+.vw-sheet-container .live-edit {
   min-width: 0;
   min-height: 0;
 }
 
-.spcsh-sheet-container .shape-container .live-edit-parsed:hover {
+.vw-sheet-container .shape-container .live-edit-parsed:hover {
   --tw-text-opacity: 1;
   color: var(--link-text, hsl(var(--p)/var(--tw-text-opacity)));
 }
 
-.spcsh-sheet-container .shape-container .live-edit-parsed:hover::after {
+.vw-sheet-container .shape-container .live-edit-parsed:hover::after {
   display: none;
 }
 
 @layer theme {
-  .spcsh-sheet-container .shape-container .live-edit-parsed:hover {
+  .vw-sheet-container .shape-container .live-edit-parsed:hover {
     --p: var(--mauve, 202 52% 49%);
     --pf: var(--pink, 202 52% 34%);
   }
 }
 
-@container spcsh-sheet (min-width: 460px) {
-  .spcsh-head .spcsh-group-container {
+@container vw-sheet (min-width: 460px) {
+  .vw-head .vw-group-container {
     flex-wrap: initial;
   }
 }
 
-@container spcsh-sheet (min-width: 700px) {
-  .spcsh-attributes-container {
+@container vw-sheet (min-width: 700px) {
+  .vw-weapon {
     flex-direction: row;
+    border-right: none;
+  }
+  .vw-weapon .triangle {
+    width: 29px;
+    height: 40px;
+    clip-path: polygon(0 0, 100% 29px, 100% 100%, 0 100%);
+  }
+  .vw-weapon .vw-weapon-type {
+    width: 50%;
   }
 }

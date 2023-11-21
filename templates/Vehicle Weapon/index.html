@@ -16,45 +16,45 @@
 
 <!-- The code to paste on Kanka starts here -->
 
-<div class="spcsh-sheet-container">
-  <div class="spcsh-weapon">
-    <div class="spcsh-group-attribute spcsh-weapon-type">
+<div class="vw-sheet-container">
+  <div class="vw-weapon">
+    <div class="vw-group-attribute vw-weapon-type">
       <div class="shape-container oct-shape">
         <div class="shape-border">
           <div class="shape-content">
             @if($fireArc === 'front' || $fireArc === 'turret')
-              <div class="spcsh-front spcsh-available">
+              <div class="vw-front vw-available">
                 <p>FRONT</p>
               </div>
             @else
-              <div class="spcsh-front">
+              <div class="vw-front">
                 <p>FRONT</p>
               </div>
             @endif
             @if($fireArc === 'right' || $fireArc === 'turret')
-              <div class="spcsh-right spcsh-available">
+              <div class="vw-right vw-available">
                 <p>RIGHT</p>
               </div>
             @else
-              <div class="spcsh-right">
+              <div class="vw-right">
                 <p>RIGHT</p>
               </div>
             @endif
             @if($fireArc === 'left' || $fireArc === 'turret')
-              <div class="spcsh-left spcsh-available">
+              <div class="vw-left vw-available">
                 <p>LEFT</p>
               </div>
             @else
-              <div class="spcsh-left">
+              <div class="vw-left">
                 <p>LEFT</p>
               </div>
             @endif
             @if($fireArc === 'back' || $fireArc === 'turret')
-              <div class="spcsh-back spcsh-available">
+              <div class="vw-back vw-available">
                 <p>AFT</p>
               </div>
             @else
-              <div class="spcsh-back">
+              <div class="vw-back">
                 <p>AFT</p>
               </div>
             @endif
@@ -62,13 +62,13 @@
         </div>
       </div>
       <span class="triangle"></span>
-      <div class="spcsh-attribute">
-        <div class="spcsh-attribute-group">
+      <div class="vw-attribute">
+        <div class="vw-attribute-group">
           <p>{{$_entity_name}}</p>
         </div>
       </div>
-      <div class="spcsh-attribute-content">
-        <div class="spcsh-type">
+      <div class="vw-attribute-content">
+        <div class="vw-type">
           <p>
             @isset($type)
               @liveAttribute('type')
@@ -83,7 +83,7 @@
             @endisset
           </div>
         </div>
-        <div class="spcsh-note">
+        <div class="vw-note">
           <span>@i18n('NOTES')</span>
           @isset($notes)
             <p>{!! $notes !!}</p>
@@ -91,10 +91,10 @@
         </div>
       </div>
     </div>
-    <div class="spcsh-group-attribute spcsh-weapon-info">
-      <div class="spcsh-attribute">
+    <div class="vw-group-attribute vw-weapon-info">
+      <div class="vw-attribute">
         @isset($fireControl)
-          <div class="spcsh-attribute-group">
+          <div class="vw-attribute-group">
             <p>@i18n('FIRE CONTROL')</p>
             <div class="shape-container hex-shape">
               <div class="shape-border">
@@ -106,7 +106,7 @@
           </div>
         @endisset
         @isset($damage)
-          <div class="spcsh-attribute-group">
+          <div class="vw-attribute-group">
             <p>@i18n('DAMAGE')</p>
             <div class="shape-container hex-shape">
               <div class="shape-border">
@@ -118,17 +118,17 @@
           </div>
         @endisset
       </div>
-      <div class="spcsh-attribute-content">
+      <div class="vw-attribute-content">
         @for($i = 1; $i <= 10; $i++)
           @isset(${"attribute_" . $i . "_label"})
-            <div class="spcsh-attribute-infos">
-              <div class="spcsh-attribute sub-element">
+            <div class="vw-attribute-infos">
+              <div class="vw-attribute sub-element">
                 <p>
                   {{ ${"attribute_" . $i . "_label"} }}
                   <span class="diag-line"></span>
                   <span class="square"></span>
                 </p>
-                <div class="spch-attribute-multiple-values">
+                <div class="vw-attribute-multiple-values">
                   @for($j = 1; $j <= 8; $j++)
                     @isset(${"attribute_" . $i . "_value_" . $j})
                       <div class="shape-container hex-shape size-small">
