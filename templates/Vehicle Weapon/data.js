@@ -1,0 +1,17 @@
+const defaultData = {
+  _entity_name: 'Laser Cannon',
+  type: 'Laser Cannon',
+  fireLinked: true,
+  notes: '',
+  fireControl: '2D',
+  damage: '4D',
+  attribute_1_label: 'Crew',
+  attribute_1_value_1: 1,
+  attribute_1_notes: '',
+  attribute_2_label: 'Range',
+  attribute_2_value_1: 1,
+  attribute_2_value_2: 3,
+  attribute_2_value_3: 12,
+  attribute_2_value_4: 25,
+  attribute_2_notes: '',
+};
