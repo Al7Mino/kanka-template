@@ -82,6 +82,20 @@
   --tw-bg-opacity: 1;
   --tw-text-opacity: 1;
   --tw-border-opacity: 0.2;
+
+  /* Kanka dark theme - General background color */
+  --base: 240 21% 15%;
+  --crust: 240 23% 9%;
+  --mantle: 240 21% 12%;
+  --content-wrapper-background: hsl(var(--base)/1);
+  --surface0: 237 16% 23%;
+  --surface1: 234 13% 31%;
+  --surface2: 233 12% 39%;
+  --text: 226 64% 88%;
+  --subtext0: 228 24% 72%;
+  --subtext1: 227 35% 80%;
+  --mauve: 287 84% 81%;
+  --pink: 316 72% 86%;
 }
 
 html {
