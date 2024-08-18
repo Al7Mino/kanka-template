@@ -384,7 +384,7 @@
   color: var(--link-text, hsl(var(--p)/var(--tw-text-opacity)));
 }
 
-.vw-sheet-container .shape-container .live-edit-parsed:hover::after {
+.vw-sheet-container .shape-container .live-edit-parsed::after {
   display: none;
 }
 
