@@ -68,6 +68,7 @@
 
 .spcsh-attribute .spcsh-group-sub-attribute > .spcsh-sub-attribute {
   position: relative;
+  align-content: center;
   font-size: 10px;
   padding-right: 22px;
   min-height: 40px;
