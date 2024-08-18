@@ -63,6 +63,7 @@
 
 .spcsh-attribute .spcsh-group-sub-attribute {
   display: flex;
+  flex-direction: row;
 }
 
 .spcsh-attribute .spcsh-group-sub-attribute > .spcsh-sub-attribute {
@@ -387,7 +388,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 90%;
+  min-width: 90%;
   height: 90%;
   background-color: hsl(var(--b3)/var(--tw-bg-opacity));
 }
@@ -475,6 +476,13 @@
 @container spcsh-sheet (min-width: 460px) {
   .spcsh-head .spcsh-group-container {
     flex-wrap: initial;
+  }
+  .spcsh-attribute .spcsh-group-sub-attribute {
+    flex-direction: column;
+  }
+  .spcsh-attribute .spcsh-group-sub-attribute > .spcsh-sub-attribute {
+    min-height: 40px;
+    margin-right: 0;
   }
 }
 
