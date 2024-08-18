@@ -63,14 +63,15 @@
 
 .spcsh-attribute .spcsh-group-sub-attribute {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .spcsh-attribute .spcsh-group-sub-attribute > .spcsh-sub-attribute {
   position: relative;
   font-size: 10px;
   padding-right: 22px;
-  margin-right: 38px;
+  min-height: 40px;
+  margin-right: 0;
 }
 
 .spcsh-attribute .spcsh-group-sub-attribute > .spcsh-sub-attribute:last-of-type {
@@ -478,11 +479,11 @@
     flex-wrap: initial;
   }
   .spcsh-attribute .spcsh-group-sub-attribute {
-    flex-direction: column;
+    flex-direction: row;
   }
   .spcsh-attribute .spcsh-group-sub-attribute > .spcsh-sub-attribute {
-    min-height: 40px;
-    margin-right: 0;
+    min-height: initial;
+    margin-right: 38px;
   }
 }
 
