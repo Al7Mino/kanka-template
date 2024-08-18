@@ -69,462 +69,513 @@
   </div>
   <div>
     <div class="spcsh-attributes-container">
-      <div class="spcsh-group-attribute spcsh-crew">
-        <div class="spcsh-attribute">
-          <div class="spcsh-attribute-group full-width">
-            <p>
-              <i class="fa-solid fa-people-group"></i>
-              @i18n('CREW')
-            </p>
-            @isset($_totalCrew)
-              <div class="shape-container hex-shape">
-                <div class="shape-border">
-                  <div class="shape-content">
-                    {{$_totalCrew}}
+      @isset($showCrew)
+      @if($showCrew)
+        <div class="spcsh-group-attribute spcsh-crew">
+          <div class="spcsh-attribute">
+            <div class="spcsh-attribute-group full-width">
+              <p>
+                <i class="fa-solid fa-people-group"></i>
+                @i18n('CREW')
+              </p>
+              @isset($_totalCrew)
+              @if($_totalCrew > 0)
+                <div class="shape-container hex-shape">
+                  <div class="shape-border">
+                    <div class="shape-content">
+                      {{$_totalCrew}}
+                    </div>
                   </div>
                 </div>
-              </div>
-            @endisset
+              @endif
+              @endisset
+            </div>
           </div>
-        </div>
-        <div class="spcsh-attribute-content">
-          @isset($crew_notes)
-            <p>{!! $crew_notes !!}</p>
-          @endisset
-          @for($i = 1; $i <= 10; $i++)
-            @isset(${"crew_" . $i . "_label"})
-              <div class="spcsh-attribute-infos">
-                <div class="spcsh-attribute sub-element">
-                  <p>
-                    {{ ${"crew_" . $i . "_label"} }}
-                    <span class="diag-line"></span>
-                    <span class="square"></span>
-                  </p>
-                  <div class="spch-attribute-multiple-values">
-                    @for($j = 1; $j <= 8; $j++)
-                      @isset(${"crew_" . $i . "_value_" . $j})
-                        <div class="shape-container hex-shape size-small">
-                          <div class="shape-border">
-                            <div class="shape-content">
-                              {{ ${"crew_" . $i . "_value_" . $j} }}
+          <div class="spcsh-attribute-content">
+            @isset($crew_notes)
+              <p>{!! $crew_notes !!}</p>
+            @endisset
+            @for($i = 1; $i <= 10; $i++)
+              @isset(${"crew_" . $i . "_label"})
+                <div class="spcsh-attribute-infos">
+                  <div class="spcsh-attribute sub-element">
+                    <p>
+                      {{ ${"crew_" . $i . "_label"} }}
+                      <span class="diag-line"></span>
+                      <span class="square"></span>
+                    </p>
+                    <div class="spch-attribute-multiple-values">
+                      @for($j = 1; $j <= 8; $j++)
+                        @isset(${"crew_" . $i . "_value_" . $j})
+                          <div class="shape-container hex-shape size-small">
+                            <div class="shape-border">
+                              <div class="shape-content">
+                                {{ ${"crew_" . $i . "_value_" . $j} }}
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        <span class="shape-underlined"></span>
-                      @endisset
-                    @endfor
+                          <span class="shape-underlined"></span>
+                        @endisset
+                      @endfor
+                    </div>
                   </div>
+                  @isset(${"crew_" . $i . "_notes"})
+                    <p>{!! ${"crew_" . $i . "_notes"} !!}</p>
+                  @endisset
                 </div>
-                @isset(${"crew_" . $i . "_notes"})
-                  <p>{!! ${"crew_" . $i . "_notes"} !!}</p>
+              @endisset
+            @endfor
+          </div>
+        </div>
+      @endif
+      @endisset
+      <div class="spcsh-engines">
+        @isset($showNavComputer)
+        @if($showNavComputer)
+          <div class="spcsh-group-attribute">
+            <div class="spcsh-attribute">
+              <div class="spcsh-attribute-group full-width">
+                <p>
+                  @i18n('NAV COMPUTER')
+                </p>
+                @isset($hasNavComputer)
+                  <div class="shape-container hex-shape">
+                    <div class="shape-border">
+                      <div class="shape-content">
+                        @if($hasNavComputer)
+                          @i18n('Yes')
+                        @else
+                          @i18n('No')
+                        @endif
+                      </div>
+                    </div>
+                  </div>
                 @endisset
               </div>
-            @endisset
-          @endfor
-        </div>
-      </div>
-      <div class="spcsh-engines">
-        <div class="spcsh-group-attribute">
-          <div class="spcsh-attribute">
-            <div class="spcsh-attribute-group full-width">
-              <p>
-                @i18n('NAV COMPUTER')
-              </p>
-              @isset($hasNavComputer)
-                <div class="shape-container hex-shape">
-                  <div class="shape-border">
-                    <div class="shape-content">
-                      @if($hasNavComputer)
-                        @i18n('Yes')
-                      @else
-                        @i18n('No')
-                      @endif
-                    </div>
-                  </div>
-                </div>
-              @endisset
             </div>
-          </div>
-          <div class="spcsh-attribute-content">
-            @isset($navComputer_notes)
-              <p>{!! $navComputer_notes !!}</p>
-            @endisset
-            @for($i = 1; $i <= 10; $i++)
-              @isset(${"navComputer_" . $i . "_label"})
-                <div class="spcsh-attribute-infos">
-                  <div class="spcsh-attribute sub-element">
-                    <p>
-                      {{ ${"navComputer_" . $i . "_label"} }}
-                      <span class="diag-line"></span>
-                      <span class="square"></span>
-                    </p>
-                    <div class="spch-attribute-multiple-values">
-                      @for($j = 1; $j <= 8; $j++)
-                        @isset(${"navComputer_" . $i . "_value_" . $j})
-                          <div class="shape-container hex-shape size-small">
-                            <div class="shape-border">
-                              <div class="shape-content">
-                                {{ ${"navComputer_" . $i . "_value_" . $j} }}
+            <div class="spcsh-attribute-content">
+              @isset($navComputer_notes)
+                <p>{!! $navComputer_notes !!}</p>
+              @endisset
+              @for($i = 1; $i <= 10; $i++)
+                @isset(${"navComputer_" . $i . "_label"})
+                  <div class="spcsh-attribute-infos">
+                    <div class="spcsh-attribute sub-element">
+                      <p>
+                        {{ ${"navComputer_" . $i . "_label"} }}
+                        <span class="diag-line"></span>
+                        <span class="square"></span>
+                      </p>
+                      <div class="spch-attribute-multiple-values">
+                        @for($j = 1; $j <= 8; $j++)
+                          @isset(${"navComputer_" . $i . "_value_" . $j})
+                            <div class="shape-container hex-shape size-small">
+                              <div class="shape-border">
+                                <div class="shape-content">
+                                  {{ ${"navComputer_" . $i . "_value_" . $j} }}
+                                </div>
                               </div>
                             </div>
-                          </div>
-                          <span class="shape-underlined"></span>
-                        @endisset
-                      @endfor
+                          @endisset
+                        @endfor
+                      </div>
                     </div>
+                    @isset(${"navComputer_" . $i . "_notes"})
+                      <p>{!! ${"navComputer_" . $i . "_notes"} !!}</p>
+                    @endisset
                   </div>
-                  @isset(${"navComputer_" . $i . "_notes"})
-                    <p>{!! ${"navComputer_" . $i . "_notes"} !!}</p>
-                  @endisset
-                </div>
-              @endisset
-            @endfor
-          </div>
-        </div>
-        <div class="spcsh-group-attribute">
-          <div class="spcsh-attribute ">
-            <div class="spcsh-attribute-group">
-              <p>
-                @i18n('SPEED')
-              </p>
+                @endisset
+              @endfor
             </div>
-            <div class="spcsh-group-sub-attribute">
-              @isset($speed_space)
-                <div class="spcsh-sub-attribute">
-                  <span>@i18n('Space')</span>
+          </div>
+        @endif
+        @endisset
+        @isset($showSpeed)
+        @if($showSpeed)
+          <div class="spcsh-group-attribute">
+            <div class="spcsh-attribute">
+              @isset($speed)
+              @empty($speed_space)
+              @empty($speed_atmosphere)
+                <div class="spcsh-attribute-group full-width">
+                  <p>
+                    <i class="fa-solid fa-people-group"></i>
+                    @i18n('SPEED')
+                  </p>
                   <div class="shape-container hex-shape">
                     <div class="shape-border">
                       <div class="shape-content">
-                        @liveAttribute('speed_space')
+                        @liveAttribute('speed')
                       </div>
                     </div>
                   </div>
                 </div>
+              @endempty
+              @endempty
               @endisset
-              @isset($speed_atmosphere)
-                <div class="spcsh-sub-attribute">
-                  <span>@i18n('Atmosphere')</span>
+              @empty($speed)
+                <div class="spcsh-attribute-group">
+                  <p>
+                    @i18n('SPEED')
+                  </p>
+                </div>
+                <div class="spcsh-group-sub-attribute">
+                  @isset($speed_space)
+                    <div class="spcsh-sub-attribute">
+                      <span>@i18n('Space')</span>
+                      <div class="shape-container hex-shape">
+                        <div class="shape-border">
+                          <div class="shape-content">
+                            @liveAttribute('speed_space')
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  @endisset
+                  @isset($speed_atmosphere)
+                    <div class="spcsh-sub-attribute">
+                      <span>@i18n('Atmosphere')</span>
+                      <div class="shape-container hex-shape">
+                        <div class="shape-border">
+                          <div class="shape-content">
+                            @liveAttribute('speed_atmosphere')
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  @endisset
+                </div>
+              @endempty
+            </div>
+            <div class="spcsh-attribute-content">
+              @isset($speed_notes)
+                <p>{!! $speed_notes !!}</p>
+              @endisset
+              @for($i = 1; $i <= 10; $i++)
+                @isset(${"speed_" . $i . "_label"})
+                  <div class="spcsh-attribute-infos">
+                    <div class="spcsh-attribute sub-element">
+                      <p>
+                        {{ ${"speed_" . $i . "_label"} }}
+                        <span class="diag-line"></span>
+                        <span class="square"></span>
+                      </p>
+                      <div class="spch-attribute-multiple-values">
+                        @for($j = 1; $j <= 8; $j++)
+                          @isset(${"speed_" . $i . "_value_" . $j})
+                            <div class="shape-container hex-shape size-small">
+                              <div class="shape-border">
+                                <div class="shape-content">
+                                  {{ ${"speed_" . $i . "_value_" . $j} }}
+                                </div>
+                              </div>
+                            </div>
+                          @endisset
+                        @endfor
+                      </div>
+                    </div>
+                    @isset(${"speed_" . $i . "_notes"})
+                      <p>{!! ${"speed_" . $i . "_notes"} !!}</p>
+                    @endisset
+                  </div>
+                @endisset
+              @endfor
+            </div>
+          </div>
+        @endif
+        @endisset
+        @isset($showManeuverability)
+        @if($showManeuverability)
+          <div class="spcsh-group-attribute">
+            <div class="spcsh-attribute">
+              <div class="spcsh-attribute-group full-width">
+                <p>
+                  @i18n('MANEUVERABILITY')
+                </p>
+                @isset($maneuverability)
                   <div class="shape-container hex-shape">
                     <div class="shape-border">
                       <div class="shape-content">
-                        @liveAttribute('speed_atmosphere')
+                        @liveAttribute('maneuverability')
                       </div>
                     </div>
                   </div>
-                </div>
-              @endisset
+                @endisset
+              </div>
             </div>
-          </div>
-          <div class="spcsh-attribute-content">
-            @isset($speed_notes)
-              <p>{!! $speed_notes !!}</p>
-            @endisset
-            @for($i = 1; $i <= 10; $i++)
-              @isset(${"speed_" . $i . "_label"})
-                <div class="spcsh-attribute-infos">
-                  <div class="spcsh-attribute sub-element">
-                    <p>
-                      {{ ${"speed_" . $i . "_label"} }}
-                      <span class="diag-line"></span>
-                      <span class="square"></span>
-                    </p>
-                    <div class="spch-attribute-multiple-values">
-                      @for($j = 1; $j <= 8; $j++)
-                        @isset(${"speed_" . $i . "_value_" . $j})
-                          <div class="shape-container hex-shape size-small">
-                            <div class="shape-border">
-                              <div class="shape-content">
-                                {{ ${"speed_" . $i . "_value_" . $j} }}
+            <div class="spcsh-attribute-content">
+              @isset($maneuverability_notes)
+                <p>{!! $maneuverability_notes !!}</p>
+              @endisset
+              @for($i = 1; $i <= 10; $i++)
+                @isset(${"maneuverability_" . $i . "_label"})
+                  <div class="spcsh-attribute-infos">
+                    <div class="spcsh-attribute sub-element">
+                      <p>
+                        {{ ${"maneuverability_" . $i . "_label"} }}
+                        <span class="diag-line"></span>
+                        <span class="square"></span>
+                      </p>
+                      <div class="spch-attribute-multiple-values">
+                        @for($j = 1; $j <= 8; $j++)
+                          @isset(${"maneuverability_" . $i . "_value_" . $j})
+                            <div class="shape-container hex-shape size-small">
+                              <div class="shape-border">
+                                <div class="shape-content">
+                                  {{ ${"maneuverability_" . $i . "_value_" . $j} }}
+                                </div>
                               </div>
                             </div>
-                          </div>
-                          <span class="shape-underlined"></span>
-                        @endisset
-                      @endfor
+                          @endisset
+                        @endfor
+                      </div>
                     </div>
+                    @isset(${"maneuverability_" . $i . "_notes"})
+                      <p>{!! ${"maneuverability_" . $i . "_notes"} !!}</p>
+                    @endisset
                   </div>
-                  @isset(${"speed_" . $i . "_notes"})
-                    <p>{!! ${"speed_" . $i . "_notes"} !!}</p>
-                  @endisset
-                </div>
-              @endisset
-            @endfor
-          </div>
-        </div>
-        <div class="spcsh-group-attribute">
-          <div class="spcsh-attribute">
-            <div class="spcsh-attribute-group full-width">
-              <p>
-                @i18n('MANEUVERABILITY')
-              </p>
-              @isset($maneuverability)
-                <div class="shape-container hex-shape">
-                  <div class="shape-border">
-                    <div class="shape-content">
-                      @liveAttribute('maneuverability')
-                    </div>
-                  </div>
-                </div>
-              @endisset
+                @endisset
+              @endfor
             </div>
           </div>
-          <div class="spcsh-attribute-content">
-            @isset($maneuverability_notes)
-              <p>{!! $maneuverability_notes !!}</p>
-            @endisset
-            @for($i = 1; $i <= 10; $i++)
-              @isset(${"maneuverability_" . $i . "_label"})
-                <div class="spcsh-attribute-infos">
-                  <div class="spcsh-attribute sub-element">
-                    <p>
-                      {{ ${"maneuverability_" . $i . "_label"} }}
-                      <span class="diag-line"></span>
-                      <span class="square"></span>
-                    </p>
-                    <div class="spch-attribute-multiple-values">
-                      @for($j = 1; $j <= 8; $j++)
-                        @isset(${"maneuverability_" . $i . "_value_" . $j})
-                          <div class="shape-container hex-shape size-small">
-                            <div class="shape-border">
-                              <div class="shape-content">
-                                {{ ${"maneuverability_" . $i . "_value_" . $j} }}
+        @endif
+        @endisset
+        @isset($showHyperdrive)
+        @if($showHyperdrive)
+          <div class="spcsh-group-attribute">
+            <div class="spcsh-attribute">
+              <div class="spcsh-attribute-group full-width">
+                <p>
+                  @i18n('HYPERDRIVE')
+                </p>
+                @isset($hyperdrive)
+                  <div class="shape-container hex-shape">
+                    <div class="shape-border">
+                      <div class="shape-content">
+                        @liveAttribute('hyperdrive')
+                      </div>
+                    </div>
+                  </div>
+                @endisset
+              </div>
+            </div>
+            <div class="spcsh-attribute-content">
+              @isset($hyperdrive_notes)
+                <p>{!! $hyperdrive_notes !!}</p>
+              @endisset
+              @for($i = 1; $i <= 10; $i++)
+                @isset(${"hyperdrive_" . $i . "_label"})
+                  <div class="spcsh-attribute-infos">
+                    <div class="spcsh-attribute sub-element">
+                      <p>
+                        {{ ${"hyperdrive_" . $i . "_label"} }}
+                        <span class="diag-line"></span>
+                        <span class="square"></span>
+                      </p>
+                      <div class="spch-attribute-multiple-values">
+                        @for($j = 1; $j <= 8; $j++)
+                          @isset(${"hyperdrive_" . $i . "_value_" . $j})
+                            <div class="shape-container hex-shape size-small">
+                              <div class="shape-border">
+                                <div class="shape-content">
+                                  {{ ${"hyperdrive_" . $i . "_value_" . $j} }}
+                                </div>
                               </div>
                             </div>
-                          </div>
-                          <span class="shape-underlined"></span>
-                        @endisset
-                      @endfor
+                          @endisset
+                        @endfor
+                      </div>
                     </div>
+                    @isset(${"hyperdrive_" . $i . "_notes"})
+                      <p>{!! ${"hyperdrive_" . $i . "_notes"} !!}</p>
+                    @endisset
                   </div>
-                  @isset(${"maneuverability_" . $i . "_notes"})
-                    <p>{!! ${"maneuverability_" . $i . "_notes"} !!}</p>
-                  @endisset
-                </div>
-              @endisset
-            @endfor
-          </div>
-        </div>
-        <div class="spcsh-group-attribute">
-          <div class="spcsh-attribute">
-            <div class="spcsh-attribute-group full-width">
-              <p>
-                @i18n('HYPERDRIVE')
-              </p>
-              @isset($hyperdrive)
-                <div class="shape-container hex-shape">
-                  <div class="shape-border">
-                    <div class="shape-content">
-                      @liveAttribute('hyperdrive')
-                    </div>
-                  </div>
-                </div>
-              @endisset
+                @endisset
+              @endfor
             </div>
           </div>
-          <div class="spcsh-attribute-content">
-            @isset($hyperdrive_notes)
-              <p>{!! $hyperdrive_notes !!}</p>
-            @endisset
-            @for($i = 1; $i <= 10; $i++)
-              @isset(${"hyperdrive_" . $i . "_label"})
-                <div class="spcsh-attribute-infos">
-                  <div class="spcsh-attribute sub-element">
-                    <p>
-                      {{ ${"hyperdrive_" . $i . "_label"} }}
-                      <span class="diag-line"></span>
-                      <span class="square"></span>
-                    </p>
-                    <div class="spch-attribute-multiple-values">
-                      @for($j = 1; $j <= 8; $j++)
-                        @isset(${"hyperdrive_" . $i . "_value_" . $j})
-                          <div class="shape-container hex-shape size-small">
-                            <div class="shape-border">
-                              <div class="shape-content">
-                                {{ ${"hyperdrive_" . $i . "_value_" . $j} }}
-                              </div>
-                            </div>
-                          </div>
-                          <span class="shape-underlined"></span>
-                        @endisset
-                      @endfor
-                    </div>
-                  </div>
-                  @isset(${"hyperdrive_" . $i . "_notes"})
-                    <p>{!! ${"hyperdrive_" . $i . "_notes"} !!}</p>
-                  @endisset
-                </div>
-              @endisset
-            @endfor
-          </div>
-        </div>
+        @endif
+        @endisset
       </div>
     </div>
     <div class="spcsh-attributes-container spcsh-defense">
-      <div class="spcsh-group-attribute">
-        <div class="spcsh-attribute">
-          <div class="spcsh-attribute-group full-width">
-            <p>
-              <i class="fa-regular fa-shield"></i>
-              @i18n('SHIELDS')
-            </p>
-            @isset($shields)
-              <div class="shape-container hex-shape">
-                <div class="shape-border">
-                  <div class="shape-content">
-                    @liveAttribute('shields')
+      @isset($showShields)
+      @if($showShields)
+        <div class="spcsh-group-attribute">
+          <div class="spcsh-attribute">
+            <div class="spcsh-attribute-group full-width">
+              <p>
+                <i class="fa-regular fa-shield"></i>
+                @i18n('SHIELDS')
+              </p>
+              @isset($shields)
+                <div class="shape-container hex-shape">
+                  <div class="shape-border">
+                    <div class="shape-content">
+                      @liveAttribute('shields')
+                    </div>
                   </div>
                 </div>
-              </div>
-            @endisset
+              @endisset
+            </div>
           </div>
-        </div>
-        <div class="spcsh-attribute-content">
-          @isset($shields_notes)
-            <p>{!! $shields_notes !!}</p>
-          @endisset
-          @for($i = 1; $i <= 10; $i++)
-            @isset(${"shields_" . $i . "_label"})
-              <div class="spcsh-attribute-infos">
-                <div class="spcsh-attribute sub-element">
-                  <p>
-                    {{ ${"shields_" . $i . "_label"} }}
-                    <span class="diag-line"></span>
-                    <span class="square"></span>
-                  </p>
-                  <div class="spch-attribute-multiple-values">
-                    @for($j = 1; $j <= 8; $j++)
-                      @isset(${"shields_" . $i . "_value_" . $j})
-                        <div class="shape-container hex-shape size-small">
-                          <div class="shape-border">
-                            <div class="shape-content">
-                              {{ ${"shields_" . $i . "_value_" . $j} }}
+          <div class="spcsh-attribute-content">
+            @isset($shields_notes)
+              <p>{!! $shields_notes !!}</p>
+            @endisset
+            @for($i = 1; $i <= 10; $i++)
+              @isset(${"shields_" . $i . "_label"})
+                <div class="spcsh-attribute-infos">
+                  <div class="spcsh-attribute sub-element">
+                    <p>
+                      {{ ${"shields_" . $i . "_label"} }}
+                      <span class="diag-line"></span>
+                      <span class="square"></span>
+                    </p>
+                    <div class="spch-attribute-multiple-values">
+                      @for($j = 1; $j <= 8; $j++)
+                        @isset(${"shields_" . $i . "_value_" . $j})
+                          <div class="shape-container hex-shape size-small">
+                            <div class="shape-border">
+                              <div class="shape-content">
+                                {{ ${"shields_" . $i . "_value_" . $j} }}
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        <span class="shape-underlined"></span>
-                      @endisset
-                    @endfor
+                          <span class="shape-underlined"></span>
+                        @endisset
+                      @endfor
+                    </div>
                   </div>
+                  @isset(${"shields_" . $i . "_notes"})
+                    <p>{!! ${"shields_" . $i . "_notes"} !!}</p>
+                  @endisset
                 </div>
-                @isset(${"shields_" . $i . "_notes"})
-                  <p>{!! ${"shields_" . $i . "_notes"} !!}</p>
-                @endisset
-              </div>
-            @endisset
-          @endfor
-        </div>
-      </div>
-      <div class="spcsh-group-attribute">
-        <div class="spcsh-attribute">
-          <div class="spcsh-attribute-group full-width">
-            <p>
-              <i class="ra ra-gear-heart"></i>
-              @i18n('HULL')
-            </p>
-            @isset($hull)
-              <div class="shape-container hex-shape">
-                <div class="shape-border">
-                  <div class="shape-content">
-                    @liveAttribute('hull')
-                  </div>
-                </div>
-              </div>
-            @endisset
+              @endisset
+            @endfor
           </div>
         </div>
-        <div class="spcsh-attribute-content">
-          @isset($hull_notes)
-            <p>{!! $hull_notes !!}</p>
-          @endisset
-          @for($i = 1; $i <= 10; $i++)
-            @isset(${"hull_" . $i . "_label"})
-              <div class="spcsh-attribute-infos">
-                <div class="spcsh-attribute sub-element">
-                  <p>
-                    {{ ${"hull_" . $i . "_label"} }}
-                    <span class="diag-line"></span>
-                    <span class="square"></span>
-                  </p>
-                  <div class="spch-attribute-multiple-values">
-                    @for($j = 1; $j <= 8; $j++)
-                      @isset(${"hull_" . $i . "_value_" . $j})
-                        <div class="shape-container hex-shape size-small">
-                          <div class="shape-border">
-                            <div class="shape-content">
-                              {{ ${"hull_" . $i . "_value_" . $j} }}
-                            </div>
-                          </div>
-                        </div>
-                        <span class="shape-underlined"></span>
-                      @endisset
-                    @endfor
+      @endif
+      @endisset
+      @isset($showHull)
+      @if($showHull)
+        <div class="spcsh-group-attribute">
+          <div class="spcsh-attribute">
+            <div class="spcsh-attribute-group full-width">
+              <p>
+                <i class="ra ra-gear-heart"></i>
+                @i18n('HULL')
+              </p>
+              @isset($hull)
+                <div class="shape-container hex-shape">
+                  <div class="shape-border">
+                    <div class="shape-content">
+                      @liveAttribute('hull')
+                    </div>
                   </div>
                 </div>
-                @isset(${"hull_" . $i . "_notes"})
-                  <p>{!! ${"hull_" . $i . "_notes"} !!}</p>
-                @endisset
-              </div>
+              @endisset
+            </div>
+          </div>
+          <div class="spcsh-attribute-content">
+            @isset($hull_notes)
+              <p>{!! $hull_notes !!}</p>
             @endisset
-          @endfor
+            @for($i = 1; $i <= 10; $i++)
+              @isset(${"hull_" . $i . "_label"})
+                <div class="spcsh-attribute-infos">
+                  <div class="spcsh-attribute sub-element">
+                    <p>
+                      {{ ${"hull_" . $i . "_label"} }}
+                      <span class="diag-line"></span>
+                      <span class="square"></span>
+                    </p>
+                    <div class="spch-attribute-multiple-values">
+                      @for($j = 1; $j <= 8; $j++)
+                        @isset(${"hull_" . $i . "_value_" . $j})
+                          <div class="shape-container hex-shape size-small">
+                            <div class="shape-border">
+                              <div class="shape-content">
+                                {{ ${"hull_" . $i . "_value_" . $j} }}
+                              </div>
+                            </div>
+                          </div>
+                          <span class="shape-underlined"></span>
+                        @endisset
+                      @endfor
+                    </div>
+                  </div>
+                  @isset(${"hull_" . $i . "_notes"})
+                    <p>{!! ${"hull_" . $i . "_notes"} !!}</p>
+                  @endisset
+                </div>
+              @endisset
+            @endfor
+          </div>
         </div>
-      </div>
+      @endif
+      @endisset
     </div>
-    <div class="spcsh-sensors">
-      <div class="spcsh-group-attribute">
-        <div class="spcsh-attribute">
-          <div class="spcsh-attribute-group full-width">
-            <p>
-              <i class="fa-solid fa-radar"></i>
-              @i18n('SENSORS')
-            </p>
-            @isset($sensors)
-              <div class="shape-container hex-shape">
-                <div class="shape-border">
-                  <div class="shape-content">
-                    @liveAttribute('sensors')
+    @isset($showSensors)
+    @if($showSensors)
+      <div class="spcsh-sensors">
+        <div class="spcsh-group-attribute">
+          <div class="spcsh-attribute">
+            <div class="spcsh-attribute-group full-width">
+              <p>
+                <i class="fa-solid fa-radar"></i>
+                @i18n('SENSORS')
+              </p>
+              @isset($sensors)
+                <div class="shape-container hex-shape">
+                  <div class="shape-border">
+                    <div class="shape-content">
+                      @liveAttribute('sensors')
+                    </div>
                   </div>
                 </div>
-              </div>
-            @endisset
+              @endisset
+            </div>
           </div>
-        </div>
-        <div class="spcsh-attribute-content">
-          @isset($sensors_notes)
-            <p>{!! $sensors_notes !!}</p>
-          @endisset
-          @for($i = 1; $i <= 10; $i++)
-            @isset(${"sensors_" . $i . "_label"})
-              <div class="spcsh-attribute-infos">
-                <div class="spcsh-attribute sub-element">
-                  <p>
-                    {{ ${"sensors_" . $i . "_label"} }}
-                    <span class="diag-line"></span>
-                    <span class="square"></span>
-                  </p>
-                  <div class="spch-attribute-multiple-values">
-                    @for($j = 1; $j <= 8; $j++)
-                      @isset(${"sensors_" . $i . "_value_" . $j})
-                        <div class="shape-container hex-shape size-small">
-                          <div class="shape-border">
-                            <div class="shape-content">
-                              {{ ${"sensors_" . $i . "_value_" . $j} }}
+          <div class="spcsh-attribute-content">
+            @isset($sensors_notes)
+              <p>{!! $sensors_notes !!}</p>
+            @endisset
+            @for($i = 1; $i <= 10; $i++)
+              @isset(${"sensors_" . $i . "_label"})
+                <div class="spcsh-attribute-infos">
+                  <div class="spcsh-attribute sub-element">
+                    <p>
+                      {{ ${"sensors_" . $i . "_label"} }}
+                      <span class="diag-line"></span>
+                      <span class="square"></span>
+                    </p>
+                    <div class="spch-attribute-multiple-values">
+                      @for($j = 1; $j <= 8; $j++)
+                        @isset(${"sensors_" . $i . "_value_" . $j})
+                          <div class="shape-container hex-shape size-small">
+                            <div class="shape-border">
+                              <div class="shape-content">
+                                {{ ${"sensors_" . $i . "_value_" . $j} }}
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        <span class="shape-underlined"></span>
-                      @endisset
-                    @endfor
+                          <span class="shape-underlined"></span>
+                        @endisset
+                      @endfor
+                    </div>
                   </div>
+                  @isset(${"sensors_" . $i . "_notes"})
+                    <p>{!! ${"sensors_" . $i . "_notes"} !!}</p>
+                  @endisset
                 </div>
-                @isset(${"sensors_" . $i . "_notes"})
-                  <p>{!! ${"sensors_" . $i . "_notes"} !!}</p>
-                @endisset
-              </div>
-            @endisset
-          @endfor
+              @endisset
+            @endfor
+          </div>
         </div>
       </div>
-    </div>
+    @endif
+    @endisset
     <div class="spcsh-weapons">
       @for($i = 1; $i <= 10; $i++)
         @isset(${"weapon_" . $i . "_name"})
@@ -685,6 +736,7 @@ cargoCapacity
 consumables
 
 -- CREW --
+showCrew
 _totalCrew
 crew_notes
 crew_1_label
@@ -698,30 +750,38 @@ crew_3_value_1
 crew_3_notes
 
 -- NAV COMPUTER --
+showNavComputer
 hasNavComputer
 navComputer_notes
 
 -- SPEED --
+showSpeed
+speed
 speed_space
 speed_atmosphere
 
 -- MANEUVERABILITY --
+showManeuvrability
 maneuverability
 
 -- HYPERDRIVE --
+showHyperdrive
 hyperdrive
 hyperdrive_1_label
 hyperdrive_1_value_1
 
 -- SHIELDS --
+showShields
 shields
 shields_notes
 
 -- HULL --
+showHull
 hull
 hull_notes
 
 -- SENSORS --
+showSensors
 sensors_notes
 sensors_1_label
 sensors_1_value_1
