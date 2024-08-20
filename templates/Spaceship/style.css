@@ -63,13 +63,16 @@
 
 .spcsh-attribute .spcsh-group-sub-attribute {
   display: flex;
+  flex-direction: column;
 }
 
 .spcsh-attribute .spcsh-group-sub-attribute > .spcsh-sub-attribute {
   position: relative;
+  align-content: center;
   font-size: 10px;
   padding-right: 22px;
-  margin-right: 38px;
+  min-height: 40px;
+  margin-right: 0;
 }
 
 .spcsh-attribute .spcsh-group-sub-attribute > .spcsh-sub-attribute:last-of-type {
@@ -387,7 +390,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 90%;
+  min-width: 90%;
   height: 90%;
   background-color: hsl(var(--b3)/var(--tw-bg-opacity));
 }
@@ -461,7 +464,7 @@
   color: var(--link-text, hsl(var(--p)/var(--tw-text-opacity)));
 }
 
-.spcsh-sheet-container .shape-container .live-edit-parsed:hover::after {
+.spcsh-sheet-container .shape-container .live-edit-parsed::after {
   display: none;
 }
 
@@ -475,6 +478,13 @@
 @container spcsh-sheet (min-width: 460px) {
   .spcsh-head .spcsh-group-container {
     flex-wrap: initial;
+  }
+  .spcsh-attribute .spcsh-group-sub-attribute {
+    flex-direction: row;
+  }
+  .spcsh-attribute .spcsh-group-sub-attribute > .spcsh-sub-attribute {
+    min-height: initial;
+    margin-right: 38px;
   }
 }
 
